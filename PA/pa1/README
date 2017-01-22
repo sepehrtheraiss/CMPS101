@@ -10,6 +10,6 @@ Table of Contents:
 -ListClient.java  Some test cases for the ADT class
 -Lex.java         Main program that takes in two command arguments(1.inputfile 2.outputfile) 
                   reads each line from input file then sorts it to the output file using modified insertion sort
--Makefile         Compiles the files and creates an executable file called lex
+-Makefile         Compiles the files and creates an executable file called Lex
 
 (total files:5)
