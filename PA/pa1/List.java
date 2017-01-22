@@ -261,7 +261,7 @@ public class List{
 		Node n = new Node(data); // new node
 		cursor.prev = n;
 		n.next = cursor;
-		if(prev != null)
+		if(prev != null) // assuming the cursor is at head
 		{
 			prev.next = n;
 		}
@@ -271,6 +271,7 @@ public class List{
 			head = n;
 		}
 		numItems++;
+                index++;
 	}
 	// insertAfter()
 	// Pre: length()>0, index()>=0
@@ -291,7 +292,7 @@ public class List{
 		cursor.next = n;
 		n.prev = cursor;
 		n.next = next;
-		if(next != null)
+		if(next != null) // assuming the cursor is at tail
 		{
 			next.prev = n;
 		}
