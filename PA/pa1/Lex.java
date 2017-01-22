@@ -1,3 +1,11 @@
+// ---------------------------------------------------------------
+// Sepehr Raissian
+// Sraissia@ucsc.edu
+// CMPS101 pa1
+// 1/21/17
+// Lex.java
+// This program will read a set of strings and store it into an array, the function insertion_sort will use a modified veriosn of insertion_sort using ADT to make it more efficient. The List will contain the sorted indicies of the string and using the indicies it will insert the sorted string into an output file
+// ----------------------------------------------------------------
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -5,6 +13,14 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Lex {
+        // insertion_sort()
+        // pre:none
+        // 1.we append the first indicie which is sorted namely j
+        // 2. if j+1 is bigger than j then we simply append j+1
+        // 3. if j+1 is smaller we loop j-1 times and move the cursor back starting from j,
+        // once the j-1th element is not smaller we insert in the indicie after it.
+        // 4.since the cursor is moving with the loop, if it goes out of bond (-1) we simply prepend the indicie,
+        // becuase it wasn't smaller than any of the previous sorted indicies.
 	public static void insertion_sort(String[] A,List list)
 	{
 		//Scanner keyboard = new Scanner(System.in);
