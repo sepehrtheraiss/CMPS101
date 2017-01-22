@@ -1,5 +1,7 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Lex {
@@ -50,33 +52,38 @@ public class Lex {
 
 	}
 	public static void main(String[] args)throws IOException{
-		File infile = new File("/Users/sepehr/Desktop/in3");
-		Scanner in = new Scanner(infile);
-		List list = new List();
-		int line_number=0;
-		while(in.hasNextLine())
-		{
-			in.nextLine();
-			line_number++;
-		}
-		in.close();
-		//System.out.println(line_number);
-		String[] str = new String[line_number];
-		in = new Scanner(infile);
-		int i=0;
-		while(in.hasNextLine())
-		{
-			str[i]= in.nextLine();
-			i++;
-		}
-		insertion_sort(str,list);
-		list.moveFront();
-		while(list.index() != -1)
-		{
-			System.out.println(str[list.get()]);
+	      if(args.length < 2){
+	          System.err.println("Usage: FileIO infile outfile");
+	          System.exit(1);
+	       }
+	      Scanner in = new Scanner(new File(args[0])); 
+	      PrintWriter out = new PrintWriter(new FileWriter(args[1]));
+	      List list = new List();
+	      int line_number=0;
+		  while(in.hasNextLine())
+		  {
+			  in.nextLine();
+			  line_number++;
+		  }
+		  in.close();
+		  
+		  String[] str = new String[line_number];
+		  in = new Scanner(new File(args[0]));
+		  int i=0;
+		  while(in.hasNextLine())
+		  {
+			  str[i]= in.nextLine();
+			  i++;
+		  }
+		  insertion_sort(str,list);
+	      in.close();
+	      list.moveFront();
+	      while(list.index() != -1)
+	      {
+			out.println(str[list.get()]);
 			list.moveNext();
-		}
-		in.close();
+	      }
+	      out.close();
 		
 	}
 }
