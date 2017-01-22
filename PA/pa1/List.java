@@ -1,4 +1,10 @@
-
+// ---------------------------------------------------------------
+// Sepehr Raissian
+// Sraissia@ucsc.edu
+// CMPS101 pa1
+// 1/21/17
+// List.java
+// ----------------------------------------------------------------
 public class List{
 	private class Node
 	{
@@ -97,6 +103,7 @@ public class List{
 		return cursor.value;
 	}
 	// equals()
+	// pre:none
 	// Returns true if this List and L are the same integer
     // sequence. The cursor is ignored in both lists.
     // Manipulation procedures
@@ -128,6 +135,7 @@ public class List{
 		}
 	}
 	// clear()
+	// pre:none
 	// Resets this List to its original empty state.
 	void clear()
 	{
@@ -135,6 +143,7 @@ public class List{
 		numItems=0;
 	}
 	// moveFront()
+	// pre:none
 	// If List is non-empty, places the cursor under the front element,
     // otherwise does nothing.
 	void moveFront()
@@ -146,6 +155,7 @@ public class List{
 		}
 	}
 	// moveBack()
+	// pre:none
 	// If List is non-empty, places the cursor under the back element,
     // otherwise does nothing.
 	void moveBack()
@@ -194,6 +204,7 @@ public class List{
 		}
 	}
 	// prepend()
+	// pre:none
 	// Insert new element into this List. If List is non-empty,
     // insertion takes place before front element.
 	void prepend(int data)
@@ -215,6 +226,7 @@ public class List{
 		numItems++;
 	}
 	// append()
+	// pre:none
 	// Insert new element into this List. If List is non-empty,
     // insertion takes place after back element.
 	void append(int data) 
@@ -352,6 +364,7 @@ public class List{
 	// Other methods
 	
 	// toString()
+	// pre:none
 	// Overrides Object's toString method. Returns a String
     // representation of this List consisting of a space
 	// separated sequence of integers, with front on left.
@@ -366,6 +379,7 @@ public class List{
 		return str.toString();
 	}
 	// copy()
+	// pre:none
 	// Returns a new List representing the same integer sequence as this
     // List. The cursor in the new list is undefined, regardless of the
     // state of the cursor in this List. This List is unchanged.
