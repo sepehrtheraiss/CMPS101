@@ -1,0 +1,15 @@
+Sepehr Raissian
+sraissia@ucsc.edu
+CMPS101 pa1
+Due date: 1/21/17
+
+Table of Contents:
+-README           Describes the table of content
+-List.java        ADT- implements double linked list and inserts to back and front,
+                  also uses a cursor to move around the list
+-ListClient.java  Some test cases for the ADT class
+-Lex.java         Main program that takes in two command arguments(1.inputfile 2.outputfile) 
+                  reads each line from input file then sorts it to the output file using modified insertion sort
+-Makefile         Compiles the files and creates an executable file called Lex
+
+(total files:5)
