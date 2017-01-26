@@ -107,7 +107,7 @@ int index(List L)
     }
     if(L->cursor!=NULL)
     {
-        return index;
+        return L->index;
     }
     else
     {
@@ -279,7 +279,7 @@ void movePrev(List L)
     }
     else if(L->cursor != NULL && L->cursor == L->head)// if cursor passes head
     {
-        L->cursor = L->NULL;
+        L->cursor = NULL;
         //index=-1;
     }
 }
@@ -548,5 +548,3 @@ List copyList(List L)
     return n;
 }
 
-
-#endif
