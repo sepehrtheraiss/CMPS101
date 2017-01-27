@@ -49,12 +49,13 @@ int main(int argc, char* argv[]){
    printList(stdout,A);
    printf("\n");
    printf("%d\n", length(A));
-   clear(A);
-   printf("%d\n", length(A));
+   
+ // clear(A);
+//   printf("%d\n", length(A));
 
-   freeList(&A);
-   freeList(&B);
-   freeList(&C);
+//   freeList(&A);
+//   freeList(&B);
+//   freeList(&C);
 
    return(0);
 }

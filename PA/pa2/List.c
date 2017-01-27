@@ -164,7 +164,7 @@ int get(List L)
         printf("List Error: calling get() on index -1\n");
         exit(1);
     }
-    return L->index;
+    return L->cursor->data;
 }
 
 // equals()
@@ -217,7 +217,7 @@ void clear(List L)
 {
     if( L==NULL ){
         printf("List Error: calling clear() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     while( length(L) != 0 ) {
         deleteBack(L);
@@ -240,6 +240,7 @@ void moveFront(List L)
     if(length(L)!=0)
     {
         L->cursor = L->head;
+       // fprintf(stderr,"%i",L->head->data);
         L->index=0;
     }
 }
