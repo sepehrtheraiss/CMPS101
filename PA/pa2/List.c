@@ -444,7 +444,7 @@ void deleteFront(List L)
     Node delete = L->head;
     L->head = L->head->next;
     L->head->prev = NULL;
-    freeNode(&L);
+    freeNode(&delete);
     L->length--;
 }
 
@@ -465,7 +465,7 @@ void deleteBack(List L)
     Node delete = L->tail;
     L->tail = L->tail->prev;
     L->tail->next = NULL;
-    freeNode(&L);
+    freeNode(&delete);
     L->length--;
 }
 
@@ -525,7 +525,7 @@ void printList(FILE* out, List L)
     }
     for(Node ptr = L->head;ptr!=NULL;ptr=ptr->next)
     {
-        fprintf(out,"%i\n",ptr->data);
+        fprintf(out,"%i ",ptr->data);
     }
 }
 
