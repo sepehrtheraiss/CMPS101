@@ -90,7 +90,7 @@ int length(List L)
 {
     if( L==NULL ){
         printf("List Error: calling length() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     return L->length;
 }
@@ -103,7 +103,7 @@ int index(List L)
 {
     if( L==NULL ){
         printf("List Error: calling index() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(L->cursor!=NULL)
     {
@@ -122,11 +122,11 @@ int front(List L)
 {
     if( L==NULL ){
         printf("List Error: calling front() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if( length(L)<=0 ){
         printf("List Error: calling front() on an empty List\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     return L->head->data;
 }
@@ -138,11 +138,11 @@ int back(List L)
 {
     if( L==NULL ){
         printf("List Error: calling back() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if( length(L)<=0 ){
         printf("List Error: calling back() on an empty List\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     return L->tail->data;
 }
@@ -154,15 +154,15 @@ int get(List L)
 {
     if( L==NULL ){
         printf("List Error: calling get() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if( length(L)<=0 ){
         printf("List Error: calling get() on an empty List\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if( index(L)==-1 ){
         printf("List Error: calling get() on index -1\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     return L->cursor->data;
 }
@@ -175,11 +175,11 @@ int equals(List L,List C)
 {
     if( L==NULL ){
         printf("List Error: calling equals() on NULL List reference L\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if( C==NULL ){
         printf("List Error: calling equals() on NULL List reference C\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L) != length(C))
     {
@@ -235,7 +235,7 @@ void moveFront(List L)
 {
     if( L==NULL ){
         printf("List Error: calling moveFront() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L)!=0)
     {
@@ -253,7 +253,7 @@ void moveBack(List L)
 {
     if( L==NULL ){
         printf("List Error: calling moveBack() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L)!=0)
     {
@@ -271,7 +271,7 @@ void movePrev(List L)
 {
     if( L==NULL ){
         printf("List Error: calling movePrev() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(L->cursor != NULL && L->cursor!=L->head)
     {
@@ -294,7 +294,7 @@ void moveNext(List L)
 {
     if( L==NULL ){
         printf("List Error: calling moveNext() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(L->cursor != NULL && L->cursor!=L->tail)
     {
@@ -316,7 +316,7 @@ void prepend(List L,int data)
 {
     if( L==NULL ){
         printf("List Error: calling prepend() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L) != 0)
     {
@@ -339,7 +339,7 @@ void append(List L,int data)
 {
     if( L==NULL ){
         printf("List Error: calling append() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L) != 0)
     {
@@ -361,17 +361,17 @@ void insertBefore(List L,int data)
 {
     if( L==NULL ){
         printf("List Error: calling insertBefore() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L)<=0)
     {
         printf("List Error: calling insertBefore() on empty List\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(index(L)<0)
     {
         printf("List Error: calling insertBefore() on a cursor pointed to NULL\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
     Node prev = L->cursor->prev;
@@ -399,17 +399,17 @@ void insertAfter(List L,int data)
 
     if( L==NULL ){
         printf("List Error: calling insertAfter() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L)<=0)
     {
         printf("List Error: calling insertAfter() on empty List\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(index(L)<0)
     {
         printf("List Error: calling insertAfter() on a cursor pointed to NULL\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
     Node n = newNode(data);
@@ -435,12 +435,12 @@ void deleteFront(List L)
 {
     if( L==NULL ){
         printf("List Error: calling deleteFront() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L)<=0)
     {
         printf("List Error: calling deleteFront() on empty List\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     Node delete = L->head;
     if(L->head->next != NULL)
@@ -459,12 +459,12 @@ void deleteBack(List L)
 {
     if( L==NULL ){
         printf("List Error: calling deleteBack() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L)<=0)
     {
         printf("List Error: calling deleteBack() on empty List\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     Node delete = L->tail;
     if(L->tail->prev != NULL)
@@ -474,7 +474,6 @@ void deleteBack(List L)
     L->tail->next = NULL;
     freeNode(&delete);
     L->length--;
-//    printf("list size: %i\n",length(L));
 
 }
 
@@ -486,17 +485,17 @@ void delete(List L)
 
     if( L==NULL ){
         printf("List Error: calling delete() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(length(L)<=0)
     {
         printf("List Error: calling delete() on empty List\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     if(index(L)<0)
     {
         printf("List Error: calling delete() on a cursor pointed to NULL\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     Node delete = L->cursor;
     Node prev = L->cursor->prev;
@@ -530,7 +529,7 @@ void printList(FILE* out, List L)
 {
     if( L==NULL ){
         printf("List Error: calling delete() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     for(Node ptr = L->head;ptr!=NULL;ptr=ptr->next)
     {
@@ -547,7 +546,7 @@ List copyList(List L)
 {
     if( L==NULL ){
         printf("List Error: calling delete() on NULL List reference\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     List n = newList();
     for(Node ptr = L->head;ptr!=NULL;ptr=ptr->next)
@@ -556,4 +555,3 @@ List copyList(List L)
     }
     return n;
 }
-

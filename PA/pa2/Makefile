@@ -1,24 +1,26 @@
 #------------------------------------------------------------------------------
-# Makefile for any ADT and its test client
+# Makefile for CMPS 101 Programming Assignment 2
+#
+#       make                   makes Lex
+#       make ListClient        makes ListClient
 #------------------------------------------------------------------------------
 
-ADT_NAME  = List
-SOURCES   = $(ADT_NAME).c $(ADT_NAME)Client.c
-OBJECTS   = $(ADT_NAME).o $(ADT_NAME)Client.o
-HEADERS   = $(ADT_NAME).h
-EXEBIN    = $(ADT_NAME)Client
-FLAGS     = -std=c99 -Wall
+Lex : Lex.o List.o
+	gcc -o Lex Lex.o List.o
 
-all: $(EXEBIN)
+Lex.o : Lex.c List.h
+	gcc -c -std=c99 -Wall Lex.c
 
-$(EXEBIN) : $(OBJECTS) $(HEADERS)
-	gcc -o $(EXEBIN) $(OBJECTS)
+ListClient: ListClient.o List.o
+	gcc -o ListClient ListClient.o List.o
 
-$(OBJECTS) : $(SOURCES) $(HEADERS)
-	gcc -c $(FLAGS) $(SOURCES)
+ListClient.o : ListClient.c List.h
+	gcc -c -std=c99 -Wall ListClient.c
+
+List.o : List.c List.h
+	gcc -c -std=c99 -Wall List.c
 
 clean :
-	rm -f $(EXEBIN) $(OBJECTS)
-
+	rm -f Lex ListClient Lex.o ListClient.o List.o
 check:
-	valgrind --leak-check=full $(EXEBIN) 
+	valgrind --leak-check=full Lex
