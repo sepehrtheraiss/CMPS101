@@ -1,15 +1,50 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "List.h"
-#define MAX_LEN 160
+void insertion_sort(char* A,List l,int cCount)
+{
+    int in;
+    int i;
+    char* temp;
+    append(l,0);
+    for(int j=1;j<cCount;j++)
+    {
+        temp = &A[j];
+        i = j-1;
+        if(strcmp(temp,&A[back(l)]) > 0)
+        {
+            append(l,j);
+        }
+        else
+        {
+            moveBack(l);
+            // stop once A[i] is not less than temp so we can add after the element that is not smaller than temp
+            while(i >=0 && strcmp(temp,&A[get(l)])<=0)
+            {
+                movePrev(l);
+                i--;
+            }
+            if(index(l) != -1)
+            {
+                insertAfter(l,j);
+            }
+                // index out of bond
+            else
+            {
+                prepend(l,j);
+            }
+        }
+
+    }// end for
+
+}
 int main(int argc, char** argv)
 {
 
-    int n, cCount=0;//character count
+    int cCount=0;//character count
+    char* str;
     FILE *in, *out;
-    char line[MAX_LEN];
-    char tokenlist[MAX_LEN];
-    char* token;
 
     // check command line for correct number of arguments
     if( argc != 3 ){
@@ -28,14 +63,31 @@ int main(int argc, char** argv)
         printf("Unable to open file %s for writing\n", argv[2]);
         exit(EXIT_FAILURE);
     }
-
-    int c ;
-    while((c=fgetc(in)))
+    printf("%c\n",fgetc(in));
+    /*gets the number of characters*/
+    while((fgetc(in))!=EOF)
     {
         cCount++;
     }
     printf("c count: %i\n",cCount);
 
+
+    str = malloc(cCount+1);//+1 for the EOF
+    char* head = str;//points to the beginning of the str
+    in = fopen(argv[1], "r"); // so the cursor starts from the beginning
+    *str=fgetc(in);
+    str++;
+    while(*str!=EOF)
+    {
+        *str=fgetc(in);
+        str++;
+    }
+    str = head; // position the str from the start
+    while(*str!=EOF)
+    {
+        printf("%c",*str);
+        str++;
+    }
     /* close files */
     fclose(in);
     fclose(out);
