@@ -74,7 +74,7 @@ List newList(void){
 // Frees all heap memory associated with List *pL, and sets *pL to NULL
 void freeList(List* pL){
     if(pL!=NULL && *pL!=NULL) {
-        while( length(*pL) != 0 ) {
+        while(length(*pL) != 0 ) {
             deleteBack(*pL);
         }
         free(*pL);
@@ -222,8 +222,8 @@ void clear(List L)
     while( length(L) != 0 ) {
         deleteBack(L);
     }
-    free(L);
-    L = NULL;
+//    free(L);
+//    L = NULL;
 }
 
 
@@ -443,7 +443,10 @@ void deleteFront(List L)
         exit(1);
     }
     Node delete = L->head;
-    L->head = L->head->next;
+    if(L->head->next != NULL)
+    {
+        L->head = L->head->next;
+    }
     L->head->prev = NULL;
     freeNode(&delete);
     L->length--;
@@ -464,10 +467,15 @@ void deleteBack(List L)
         exit(1);
     }
     Node delete = L->tail;
-    L->tail = L->tail->prev;
+    if(L->tail->prev != NULL)
+    {
+        L->tail = L->tail->prev;
+    }
     L->tail->next = NULL;
     freeNode(&delete);
     L->length--;
+//    printf("list size: %i\n",length(L));
+
 }
 
 // delete() 
