@@ -40,9 +40,9 @@ void insertion_sort(char** A,List l,int cCount)
 }
 int main(int argc, char** argv)
 {
-
+    int line_count=0;//line count
     int cCount=0;//character count
-    char** str;
+    char** A;
     FILE *in, *out;
 
     // check command line for correct number of arguments
@@ -62,7 +62,41 @@ int main(int argc, char** argv)
         printf("Unable to open file %s for writing\n", argv[2]);
         exit(EXIT_FAILURE);
     }
-    while(fgetc(in)!=EOF){cCount++;}
+    /*reading number of characters and lines*/
+    char c;
+    while((c=fgetc(in))&& c!=EOF)
+    {
+        if(c=='\n')
+        {
+            line_count++;
+        }
+    }    
+
+    /*constructing string array*/
+    printf("line count: %i\n",line_count);
+    in = fopen(argv[1], "r");
+    A = malloc(line_count);
+    int i=0;
+    while((c=fgetc(in))&& c!=EOF)
+    {
+        if(c!='\n')
+        {
+            cCount++;
+        }
+        else
+        {
+            printf("count char: %i\n",cCount);
+            //A[i]=malloc(cCount);
+            i++;
+            cCount=0;
+        }
+    }
+   /* i =0;
+    while(fgets(A[i],cCount+line_count+1,in)!=NULL)
+    {
+        i++;
+    }*/
+
     /* close files */
     fclose(in);
     fclose(out);
