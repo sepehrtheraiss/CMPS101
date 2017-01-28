@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "List.h"
-void insertion_sort(char* A,List l,int cCount)
+void insertion_sort(char** A,List l,int cCount)
 {
     int in;
     int i;
@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 {
 
     int cCount=0;//character count
-    char* str;
+    char** str;
     FILE *in, *out;
 
     // check command line for correct number of arguments
@@ -63,31 +63,7 @@ int main(int argc, char** argv)
         printf("Unable to open file %s for writing\n", argv[2]);
         exit(EXIT_FAILURE);
     }
-    printf("%c\n",fgetc(in));
-    /*gets the number of characters*/
-    while((fgetc(in))!=EOF)
-    {
-        cCount++;
-    }
-    printf("c count: %i\n",cCount);
-
-
-    str = malloc(cCount+1);//+1 for the EOF
-    char* head = str;//points to the beginning of the str
-    in = fopen(argv[1], "r"); // so the cursor starts from the beginning
-    *str=fgetc(in);
-    str++;
-    while(*str!=EOF)
-    {
-        *str=fgetc(in);
-        str++;
-    }
-    str = head; // position the str from the start
-    while(*str!=EOF)
-    {
-        printf("%c",*str);
-        str++;
-    }
+    while(fgetc(in)!=EOF){cCount++;}
     /* close files */
     fclose(in);
     fclose(out);
