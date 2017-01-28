@@ -1,7 +1,25 @@
+// ---------------------------------------------------------------
+// Sepehr Raissian
+// Sraissia@ucsc.edu
+// CMPS101 pa2
+// 1/28/17
+// Lex.c
+// This program will read a set of strings and store it into an array,
+// the function insertion_sort will use a modified veriosn of insertion_sort using ADT to make it more efficient.
+// The List will contain the sorted indicies of the string and using the indicies it will insert the sorted string into an output file.
+// ----------------------------------------------------------------
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "List.h"
+// insertion_sort()
+// pre:none
+// 1.we append the first indicie which is sorted namely j
+// 2. if j+1 is bigger than j then we simply append j+1
+// 3. if j+1 is smaller we loop j-1 times and move the cursor back starting from j,
+// once the j-1th element is not smaller we insert in the indicie after it.(yes I said we, cuz me and my computer are a team)
+// 4.since the cursor is moving with the loop, if it goes out of bond (-1) we simply prepend the indicie,
+// becuase it wasn't smaller than any of the previous sorted indicies.
 void insertion_sort(char* A[],List l,int lineNum)
 {
     int i;
