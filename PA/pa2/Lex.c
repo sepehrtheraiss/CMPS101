@@ -58,16 +58,16 @@ void insertion_sort(char* A[],List l,int lineNum)
 }
 int main(int argc, char** argv)
 {
-    int line_count=0;//line count
-    int cCount=0;//character count
-   // char** A;
-    FILE *in, *out;
-
     // check command line for correct number of arguments
     if( argc != 3 ){
         printf("Usage: %s <input file> <output file>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
+
+    List l = newList();
+    int line_count=0;//line count
+    int cCount=0;//character count
+    FILE *in, *out;
 
     // open files for reading and writing
     in = fopen(argv[1], "r");
@@ -94,39 +94,20 @@ int main(int argc, char** argv)
         }
     }    
 
-    char* str[line_count];
+    in = fopen(argv[1], "r");//because the cursor needs to start from the beginning
     /*constructing string array*/
-    printf("line count: %i char count: %i\n",line_count,cCount);
-   // A = malloc(line_count);
-    in = fopen(argv[1], "r");
-   /* int i=0;
-    while((c=fgetc(in))&& c!=EOF)
-    {
-        if(c!='\n')
-        {
-            cCount++;
-        }
-        else
-        {
-            printf("count char: %i\n",cCount);
-        //    A[i]=malloc(cCount);
-            i++;
-            cCount=0;
-        }
-    }*/
-    
+    char* str[line_count];
     for(int a=0;a<line_count;a++)
     {
         str[a]=malloc(cCount);
     }
+    /*reading from the file as a string*/
     int i =0;
-   // char p[50];
-    while(fgets(str[i],cCount+2,in)!=NULL)
+    while(fgets(str[i],cCount,in)!=NULL)
     {
-        printf("%s",str[i]);
         i++;
     }
-    List l = newList();
+    /*sorting then printing it to out file*/
     insertion_sort(str,l,line_count);
     moveFront(l);
     while(index(l)!=-1)
@@ -137,5 +118,12 @@ int main(int argc, char** argv)
     /* close files */
     fclose(in);
     fclose(out);
-    return EXIT_SUCCESS;
+    /*freeing memories*/
+    for(int a=0;a<line_count;a++)
+    {
+        free(str[a]);
+        str[a]=NULL;
+    }
+    freeList(&l);
+return EXIT_SUCCESS;
 }
