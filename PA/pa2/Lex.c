@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "List.h"
-/*void insertion_sort(char** A,List l,int cCount)
+#include "List.h"
+void insertion_sort(char* A[],List l,int lineNum)
 {
     int i;
     char* temp;
     append(l,0);
-    for(int j=1;j<cCount;j++)
+    for(int j=1;j<lineNum;j++)
     {
-        temp = &A[j];
+        temp = A[j];
         i = j-1;
-        if(strcmp(temp,&A[back(l)]) > 0)
+        if(strcmp(temp,A[back(l)]) > 0)
         {
             append(l,j);
         }
@@ -19,7 +19,7 @@
         {
             moveBack(l);
             // stop once A[i] is not less than temp so we can add after the element that is not smaller than temp
-            while(i >=0 && strcmp(temp,&A[get(l)])<=0)
+            while(i >=0 && strcmp(temp,A[get(l)])<=0)
             {
                 movePrev(l);
                 i--;
@@ -37,12 +37,12 @@
 
     }// end for
 
-}*/
+}
 int main(int argc, char** argv)
 {
     int line_count=0;//line count
     int cCount=0;//character count
-    char** A;
+   // char** A;
     FILE *in, *out;
 
     // check command line for correct number of arguments
@@ -70,13 +70,18 @@ int main(int argc, char** argv)
         {
             line_count++;
         }
+        else
+        {
+            cCount++;
+        }
     }    
 
+    char* str[line_count];
     /*constructing string array*/
-    printf("line count: %i\n",line_count);
+    printf("line count: %i char count: %i\n",line_count,cCount);
+   // A = malloc(line_count);
     in = fopen(argv[1], "r");
-    A = malloc(line_count);
-    int i=0;
+   /* int i=0;
     while((c=fgetc(in))&& c!=EOF)
     {
         if(c!='\n')
@@ -86,17 +91,31 @@ int main(int argc, char** argv)
         else
         {
             printf("count char: %i\n",cCount);
-            A[i]=malloc(cCount);
+        //    A[i]=malloc(cCount);
             i++;
             cCount=0;
         }
-    }
-   /* i =0;
-    while(fgets(A[i],cCount+line_count+1,in)!=NULL)
-    {
-        i++;
     }*/
-
+    
+    for(int a=0;a<line_count;a++)
+    {
+        str[a]=malloc(cCount);
+    }
+    int i =0;
+   // char p[50];
+    while(fgets(str[i],cCount+2,in)!=NULL)
+    {
+        printf("%s",str[i]);
+        i++;
+    }
+    List l = newList();
+    insertion_sort(str,l,line_count);
+    moveFront(l);
+    while(index(l)!=-1)
+    {
+        fprintf(out,"%s",str[get(l)]);
+        moveNext(l);
+    }
     /* close files */
     fclose(in);
     fclose(out);
