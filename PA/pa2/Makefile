@@ -23,4 +23,4 @@ List.o : List.c List.h
 clean :
 	rm -f Lex ListClient Lex.o ListClient.o List.o
 check:
-	valgrind --leak-check=full --show-leak-kinds=all Lex in1 out1
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all Lex in1 out1

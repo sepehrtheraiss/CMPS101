@@ -20,7 +20,7 @@
 // once the j-1th element is not smaller we insert in the indicie after it.(yes I said we, cuz me and my computer are a team)
 // 4.since the cursor is moving with the loop, if it goes out of bond (-1) we simply prepend the indicie,
 // becuase it wasn't smaller than any of the previous sorted indicies.
-void insertion_sort(char* A[],List l,int lineNum)
+void insertion_sort(char** A,List l,int lineNum)
 {
     int i;
     char* temp;
@@ -94,6 +94,7 @@ int main(int argc, char** argv)
         }
     }    
 
+    fclose(in);//to free the memory it was pointed to
     in = fopen(argv[1], "r");//because the cursor needs to start from the beginning
     /*constructing string array*/
     char* str[line_count];
@@ -103,8 +104,10 @@ int main(int argc, char** argv)
     }
     /*reading from the file as a string*/
     int i =0;
-    while(fgets(str[i],cCount,in)!=NULL)
+    char temp[cCount];
+    while(fgets(temp,cCount*2,in)!=NULL)
     {
+        strcpy(str[i],temp);
         i++;
     }
     /*sorting then printing it to out file*/
