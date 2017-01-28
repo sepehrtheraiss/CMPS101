@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "List.h"
-void insertion_sort(char** A,List l,int cCount)
+//#include "List.h"
+/*void insertion_sort(char** A,List l,int cCount)
 {
     int i;
     char* temp;
@@ -37,7 +37,7 @@ void insertion_sort(char** A,List l,int cCount)
 
     }// end for
 
-}
+}*/
 int main(int argc, char** argv)
 {
     int line_count=0;//line count
@@ -86,7 +86,7 @@ int main(int argc, char** argv)
         else
         {
             printf("count char: %i\n",cCount);
-            //A[i]=malloc(cCount);
+            A[i]=malloc(cCount);
             i++;
             cCount=0;
         }
