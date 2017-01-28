@@ -4,7 +4,6 @@
 #include "List.h"
 void insertion_sort(char** A,List l,int cCount)
 {
-    int in;
     int i;
     char* temp;
     append(l,0);
