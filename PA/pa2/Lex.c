@@ -102,7 +102,6 @@ int main(int argc, char** argv)
         str[a]=malloc(cCount);
     }
     int i =0;
-   // char p[50];
     while(fgets(str[i],cCount+2,in)!=NULL)
     {
         printf("%s",str[i]);
@@ -116,8 +115,16 @@ int main(int argc, char** argv)
         fprintf(out,"%s",str[get(l)]);
         moveNext(l);
     }
+
     /* close files */
     fclose(in);
     fclose(out);
-    return EXIT_SUCCESS;
+    /*freeing memories*/
+    for(int a=0;a<line_count;a++)
+    {
+        free(str[a]);
+    }
+    free(str);
+    freeList(&l);
+return EXIT_SUCCESS;
 }
