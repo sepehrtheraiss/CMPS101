@@ -59,13 +59,6 @@ public class Lex {
                                         list.prepend(j);
                                 }
                         }
-//                      list.moveFront();
-//                      while(list.index() != -1)
-//                      {
-//                              System.out.print(A[list.get()]+" ");
-//                              list.moveNext();
-//                      }
-//                      System.out.println();
                 }// end for
 
         }
