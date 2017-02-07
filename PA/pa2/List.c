@@ -222,8 +222,6 @@ void clear(List L)
     while( length(L) != 0 ) {
         deleteBack(L);
     }
-//    free(L);
-//    L = NULL;
 }
 
 
@@ -240,7 +238,6 @@ void moveFront(List L)
     if(length(L)!=0)
     {
         L->cursor = L->head;
-       // fprintf(stderr,"%i",L->head->data);
         L->index=0;
     }
 }
@@ -281,7 +278,6 @@ void movePrev(List L)
     else if(L->cursor != NULL && L->cursor == L->head)// if cursor passes head
     {
         L->cursor = NULL;
-        //index=-1;
     }
 }
 
@@ -304,7 +300,6 @@ void moveNext(List L)
     else if(L->cursor != NULL && L->cursor == L->tail) // if cursor passes tail
     {
         L->cursor = NULL;
-        //index=-1;
     }
 }
 
