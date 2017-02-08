@@ -1,5 +1,6 @@
 package pa3;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -35,7 +36,8 @@ public class Main {
 				in.nextLine();
 			}
 		}
-			
+		in.close();
+		System.out.println(A);
 	}
 
 }

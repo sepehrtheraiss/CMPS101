@@ -1,5 +1,6 @@
 package pa3;
 
+
 public class Matrix {
 	// ENRTY ************************************************
 	private class Entry
@@ -13,7 +14,7 @@ public class Matrix {
 		}
 		public String toString()
 		{
-			return "";
+	         return new String("("+column+","+value+")");
 		}
 		public boolean equals()
 		{
@@ -23,7 +24,7 @@ public class Matrix {
 	//*************************************************************
 	// DATA FIELDS ************************************************
 	List L[]; // Array of list, each list defines a row
-	int n;//size of the Matrix
+	int size;//size of the Matrix rows and columns
 	int NNZ; // number of none-zero entries
 	//*************************************************************
 	// Constructor ************************************************
@@ -41,21 +42,21 @@ public class Matrix {
 		{
 			L[i] = new List();
 		}
-		this.n = n;
+		size = n;
+		NNZ = 0;
 	}	
 	//*************************************************************	
 	// Access functions ************************************************
 	
-	// Returns n, the number of rows and columns of this Matrix
+	// Returns size, the number of rows and columns of this Matrix
 	int getSize()
 	{
-		return this.n;
+		return size;
 	}
 	// Returns the number of non-zero entries in this Matrix
 	int getNNZ()
 	{
-		return this.NNZ;
-		
+		return NNZ;	
 	}
 	// overrides Object's equals() method
 	public boolean equals(Object x)
@@ -72,7 +73,7 @@ public class Matrix {
 		{
 			L[0].clear();
 		}
-		NNZ = n = 0;
+		NNZ = size = 0;
 	}
 	// returns a new Matrix having the same entries as this Matrix
 	Matrix copy()
@@ -101,12 +102,47 @@ public class Matrix {
 		{
 			throw new RuntimeException("j < 1");
 		}
-		L[i-1].append(new Entry(j,x));
+		// row i-1 is empty 
+		if(L[i-1].length() == 0 && x != 0)
+		{
+			L[i-1].append(new Entry(j,x));
+			NNZ++;
+		}
+		// insert into the correct column
+		else
+		{
+			L[i-1].moveFront();
+			Entry e = new Entry(j,x);
+			Entry t = null;
+			// gets each element and inserts at the correct position
+			while(L[i-1].index() != -1)
+			{
+				t = (Entry) L[i-1].get();
+				if(j > t.column)
+				{
+					L[i-1].moveNext();
+				}
+				else if(j == t.column) // for replacement of entry 
+				{
+					L[i-1].insertAfter(e);
+					L[i-1].delete();
+				}
+				else
+				{
+					L[i-1].insertAfter(e);
+				}
+				if(L[i-1].index() == -1)
+				{
+					L[i-1].append(e);
+				}
+			}
+		}
 	}
 
 	// returns a new Matrix that is the scalar product of this Matrix with x
 	Matrix scalarMult(double x)
 	{
+
 		return new Matrix(1);
 	}
 	
@@ -138,7 +174,21 @@ public class Matrix {
 	// overrides Object's toString() method
 	public String toString() 
 	{
-		return "";
+		StringBuffer buff = new StringBuffer();
+		Entry e = null;
+		for(int i =0;i<size;i++)
+		{
+			buff.append(i+1+":");
+			L[i].moveFront();
+			while(L[i].index() != -1)
+			{
+				e = (Entry)L[i].get();
+				buff.append(" "+e.toString());
+				L[i].moveNext();
+			}
+			buff.append("\n");
+		}
+		return buff.toString();
 	}
 	
 }
