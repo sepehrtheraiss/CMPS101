@@ -61,7 +61,56 @@ public class Matrix {
 	// overrides Object's equals() method
 	public boolean equals(Object x)
 	{
-		return true;
+		if(x instanceof Matrix)
+		{
+			Matrix B = (Matrix)x;
+			if(B.size != this.size)
+			{
+				return false;
+			}
+			else
+			{
+				for(int i =0;i<size;i++)
+				{
+					B.L[i].moveFront();
+					L[i].moveFront();
+					Entry e1 = (Entry)L[i].get();
+					Entry e2 = (Entry)B.L[i].get();
+					while(B.L[i].index() != -1 && L[i].index() != -1)
+					{
+						if(e1.column == e2.column)
+						{
+							if(e1.value == e2.value)
+							{
+								L[i].moveNext();
+								B.L[i].moveNext();
+							}
+							else
+							{
+								return false;
+							}
+						}
+						else
+						{
+							return false;
+						}
+						if(L[i].index() != -1 )
+						{
+							e1 = (Entry) L[i].get();
+						}
+						if(B.L[i].index() != -1)
+						{
+							e2 = (Entry) B.L[i].get();
+						}	
+					}
+				}
+				return true;
+			}
+		}
+		else
+		{
+			return false;
+		}
 	}
 	//**********************************************************************
 	// Manipulation procedures ************************************************
@@ -78,7 +127,17 @@ public class Matrix {
 	// returns a new Matrix having the same entries as this Matrix
 	Matrix copy()
 	{
-		Matrix copy = new Matrix(1);
+		Matrix copy = new Matrix(size);
+		for(int i=0;i<size;i++)
+		{
+			L[i].moveFront();
+			while(L[i].index() != -1)
+			{
+				Entry e = (Entry)L[i].get();
+				copy.changeEntry(i+1, e.column, e.value);
+				L[i].moveNext();
+			}
+		}
 		return copy;
 	}
 	// changeEntry()
@@ -142,21 +201,131 @@ public class Matrix {
 	// returns a new Matrix that is the scalar product of this Matrix with x
 	Matrix scalarMult(double x)
 	{
-
-		return new Matrix(1);
+		Matrix m = new Matrix(size);
+		for(int i =0;i<size;i++)
+		{
+			L[i].moveFront();
+			while(L[i].index() != -1)
+			{
+				Entry e = (Entry)L[i].get();
+				m.changeEntry(i+1, e.column, e.value*x);
+				L[i].moveNext();
+			}
+		}
+		return m;
 	}
 	
 	// pre: getSize()==M.getSize()
 	// returns a new Matrix that is the sum of this Matrix with M
 	Matrix add(Matrix M)
 	{
-		return new Matrix(1);
+		Matrix n = new Matrix(size);
+		boolean equal = this.equals(M);
+		for(int i =0;i<size;i++)
+		{
+			L[i].moveFront();  // e1
+			M.L[i].moveFront(); // e2
+			Entry e1 = (Entry) L[i].get();
+			Entry e2 = (Entry) M.L[i].get();
+			while(M.L[i].index() != -1 && L[i].index() != -1)
+			{
+				if(e1.column == e2.column) // if the same column 
+				{
+					//System.out.println("e1: "+e1.column+":"+e1.value);
+					//System.out.println("e2: "+e1.column+":"+e2.value);
+					n.changeEntry(i+1, e1.column, e1.value + e2.value);
+					if(!equal)// because if so it uses the same reference
+					{
+						M.L[i].moveNext();
+					}
+					L[i].moveNext();
+				}
+				else if(e1.column > e2.column) // e1.column has a zero entry
+				{
+					//System.out.println("else e2: "+e2.column+":"+e2.value);
+					n.changeEntry(i+1, e2.column, e2.value);
+					M.L[i].moveNext();
+				}
+				else if (e1.column < e2.column) // e2.column has a zero entry
+				{
+					//System.out.println("else e1: "+e1.column+":"+e1.value);
+					n.changeEntry(i+1, e1.column, e1.value);
+					L[i].moveNext();
+				}
+				if(L[i].index() != -1 )
+				{
+					e1 = (Entry) L[i].get();
+				}
+				if(M.L[i].index() != -1)
+				{
+					e2 = (Entry) M.L[i].get();
+				}
+			}//end while
+			// last entry that doesn't get added because the loop exits when one of them hits -1
+			if(L[i].index() != -1)
+			{
+				n.changeEntry(i+1, e1.column, e1.value);
+			}
+			else if(M.L[i].index() != -1)
+			{
+				n.changeEntry(i+1, e2.column, e2.value);
+			}
+		}
+		return n;
 	}
 	// pre: getSize()==M.getSize()
 	// returns a new Matrix that is the difference of this Matrix with M
 	Matrix sub(Matrix M)
 	{
-		return new Matrix(1);
+		Matrix n = new Matrix(size);
+		boolean equal = this.equals(M);
+		for(int i =0;i<size;i++)
+		{
+			L[i].moveFront();  // e1
+			M.L[i].moveFront(); // e2
+			Entry e1 = (Entry) L[i].get();
+			Entry e2 = (Entry) M.L[i].get();
+			while(M.L[i].index() != -1 && L[i].index() != -1)
+			{
+				if(e1.column == e2.column) // if the same column 
+				{
+					n.changeEntry(i+1, e1.column, e1.value - e2.value);
+					if(!equal)// because if so it uses the same reference
+					{
+						M.L[i].moveNext();
+					}
+					L[i].moveNext();
+				}
+				else if(e1.column > e2.column) // e1.column has a zero entry
+				{
+					n.changeEntry(i+1, e2.column, e2.value*-1);
+					M.L[i].moveNext();
+				}
+				else if (e1.column < e2.column) // e2.column has a zero entry
+				{
+					n.changeEntry(i+1, e1.column, e1.value*-1);
+					L[i].moveNext();
+				}
+				if(L[i].index() != -1 )
+				{
+					e1 = (Entry) L[i].get();
+				}
+				if(M.L[i].index() != -1)
+				{
+					e2 = (Entry) M.L[i].get();
+				}
+			}//end while
+			// last entry that doesn't get added because the loop exits when one of them hits -1
+			if(L[i].index() != -1)
+			{
+				n.changeEntry(i+1, e1.column, e1.value);
+			}
+			else if(M.L[i].index() != -1)
+			{
+				n.changeEntry(i+1, e2.column, e2.value);
+			}
+		}
+		return n;
 	}
 	// returns a new Matrix that is the transpose of this Matrix
 	Matrix transpose()
@@ -176,6 +345,10 @@ public class Matrix {
 	{
 		StringBuffer buff = new StringBuffer();
 		Entry e = null;
+		if(NNZ == 0)
+		{
+			return "";
+		}
 		for(int i =0;i<size;i++)
 		{
 			buff.append(i+1+":");
