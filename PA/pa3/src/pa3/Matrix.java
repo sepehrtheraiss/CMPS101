@@ -16,10 +16,6 @@ public class Matrix {
 		{
 	         return new String("("+column+","+value+")");
 		}
-		public boolean equals()
-		{
-			return true;
-		}
 	}// end of class Entry
 	//*************************************************************
 	// DATA FIELDS ************************************************
@@ -197,7 +193,6 @@ public class Matrix {
 			}
 		}
 	}
-
 	// returns a new Matrix that is the scalar product of this Matrix with x
 	Matrix scalarMult(double x)
 	{
@@ -214,7 +209,6 @@ public class Matrix {
 		}
 		return m;
 	}
-	
 	// pre: getSize()==M.getSize()
 	// returns a new Matrix that is the sum of this Matrix with M
 	Matrix add(Matrix M)
@@ -330,13 +324,31 @@ public class Matrix {
 	// returns a new Matrix that is the transpose of this Matrix
 	Matrix transpose()
 	{
-		return new Matrix(1);
+		Matrix n = new Matrix(size);
+		Entry e = null;
+		int j=0;
+		for(int i=0;i<size;i++)
+		{
+			L[i].moveFront();
+			while(L[i].index() != -1)
+			{
+				n.changeEntry(j+1, i+1, ((Entry)L[i].get()).value);
+				L[i].moveNext();
+				j++;
+			}
+			j=0;
+			
+		}
+		return n;
 	}
 	// pre: getSize()==M.getSize()
 	// returns a new Matrix that is the product of this Matrix with M
 	Matrix mult(Matrix M)
 	{
-		return new Matrix(1);
+		Matrix n = new Matrix(size);
+		M = M.transpose();
+		n.changeEntry(1, 1, dot(L[0],M.L[0]));
+		return n;
 	}	
 	//****************************************************************************
 	// Other functions
@@ -362,6 +374,37 @@ public class Matrix {
 			buff.append("\n");
 		}
 		return buff.toString();
+	}
+	private double dot(List P, List Q)
+	{
+		P.moveFront();
+		Q.moveFront();
+		double value = 0.0;
+		if(P.index() != -1 && Q.index() != -1)
+		{
+			value += ((Entry)P.get()).value * ((Entry)Q.get()).value;
+			while(P.index() != -1 && Q.index() != -1)
+			{
+				P.moveNext();
+				Q.moveNext();
+				if(P.index() != -1 && Q.index() != -1)
+				{
+					if(((Entry)P.get()).column >((Entry)Q.get()).column) // P had a zero entry
+					{
+						Q.moveNext(); // since it has to be multiplied by a zero we can just ignore adding the number
+					}
+					else if(((Entry)P.get()).column <((Entry)Q.get()).column)// Q had a zero entry
+					{
+						P.moveNext();
+					}
+					else
+					{
+						value += ((Entry)P.get()).value * ((Entry)Q.get()).value;
+					}
+				}
+			}//end while
+		}
+		return value;
 	}
 	
 }
