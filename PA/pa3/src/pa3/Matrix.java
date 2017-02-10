@@ -332,8 +332,11 @@ public class Matrix {
 			L[i].moveFront();
 			while(L[i].index() != -1)
 			{
-				n.changeEntry(j+1, i+1, ((Entry)L[i].get()).value);
-				L[i].moveNext();
+				if(j+1 ==((Entry)L[i].get()).column)
+				{
+					n.changeEntry(j+1, i+1, ((Entry)L[i].get()).value);
+					L[i].moveNext();
+				}
 				j++;
 			}
 			j=0;
