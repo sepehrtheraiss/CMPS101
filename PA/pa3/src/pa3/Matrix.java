@@ -350,7 +350,18 @@ public class Matrix {
 	{
 		Matrix n = new Matrix(size);
 		M = M.transpose();
-		n.changeEntry(1, 1, dot(L[0],M.L[0]));
+		double value = 0.0;
+		for(int i =0;i<size;i++)
+		{
+			for(int j=0;j<size;j++)
+			{
+				value = dot(L[i],M.L[j]);
+				if(value != 0)
+				{
+					n.changeEntry(i+1, j+1,value);
+				}
+			}
+		}
 		return n;
 	}	
 	//****************************************************************************
@@ -380,33 +391,31 @@ public class Matrix {
 	}
 	private double dot(List P, List Q)
 	{
+		double value = 0.0;
 		P.moveFront();
 		Q.moveFront();
-		double value = 0.0;
-		if(P.index() != -1 && Q.index() != -1)
+		
+		while(P.index() != -1 && Q.index() != -1)
 		{
-			value += ((Entry)P.get()).value * ((Entry)Q.get()).value;
-			while(P.index() != -1 && Q.index() != -1)
+			if(P.index() != -1 && Q.index() != -1)
 			{
-				P.moveNext();
-				Q.moveNext();
-				if(P.index() != -1 && Q.index() != -1)
+				if(((Entry)P.get()).column >((Entry)Q.get()).column) // P had a zero entry
 				{
-					if(((Entry)P.get()).column >((Entry)Q.get()).column) // P had a zero entry
-					{
-						Q.moveNext(); // since it has to be multiplied by a zero we can just ignore adding the number
-					}
-					else if(((Entry)P.get()).column <((Entry)Q.get()).column)// Q had a zero entry
-					{
-						P.moveNext();
-					}
-					else
-					{
-						value += ((Entry)P.get()).value * ((Entry)Q.get()).value;
-					}
+					Q.moveNext(); // since it has to be multiplied by a zero we can just ignore adding the number
 				}
-			}//end while
-		}
+				else if(((Entry)P.get()).column <((Entry)Q.get()).column)// Q had a zero entry
+				{
+					P.moveNext();
+				}
+				else
+				{
+					value += ((Entry)P.get()).value * ((Entry)Q.get()).value;
+					P.moveNext();
+					Q.moveNext();
+				}
+			}
+		}//end while
+
 		return value;
 	}
 	

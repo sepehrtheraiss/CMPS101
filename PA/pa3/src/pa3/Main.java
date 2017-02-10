@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
 
-		File file = new File("/Users/sepehr/Desktop/in1");
+		File file = new File("/Users/sepehr/Desktop/in2");
 		Scanner in =  new Scanner(file);
 		int n,a,b;
 		n = Integer.parseInt(in.next());
@@ -17,7 +17,6 @@ public class Main {
 		b = Integer.parseInt(in.next());
 		Matrix A = new Matrix(n);
 		Matrix B = new Matrix(n);
-		//System.out.println();
 		int i =0;// counting the number lines required for each matrix
 		while(in.hasNextLine())
 		{
@@ -25,27 +24,31 @@ public class Main {
 			{
 				i++;
 				A.changeEntry(Integer.parseInt(in.next()),Integer.parseInt(in.next()),Double.parseDouble(in.next()));
+				System.out.println(i);
 			}
 			else if(i-a < b)
 			{
 				i++;
 				B.changeEntry(Integer.parseInt(in.next()),Integer.parseInt(in.next()),Double.parseDouble(in.next()));
+				System.out.println("2: "+i);
 			}
 			else
 			{
+				System.out.println("last");
 				in.nextLine();
 			}
 		}
 		in.close();
-		System.out.println("A:\n"+A);
-		System.out.println("B:\n"+B);
-		System.out.println(A.equals(A));
-		System.out.println("A+B\n"+A.add(B));
-		System.out.println("A+A\n"+A.add(A));
-		System.out.println("B-A\n"+B.sub(A));
-		System.out.println("A-A\n"+A.sub(A));
-		System.out.println("Transpose(A)\n"+A.transpose());
-		System.out.println("A*B =\n"+A.mult(B));
+//		System.out.println("A:\n"+A);
+//		System.out.println("B:\n"+B);
+//		System.out.println(A.equals(A));
+//		System.out.println("A+B\n"+A.add(B));
+//		System.out.println("A+A\n"+A.add(A));
+//		System.out.println("B-A\n"+B.sub(A));
+//		System.out.println("A-A\n"+A.sub(A));
+//		System.out.println("Transpose(A)\n"+A.transpose());
+//		System.out.println("A*B =\n"+A.mult(B));
+//		System.out.println("B*B =\n"+B.mult(B));
 		
 	}
 
