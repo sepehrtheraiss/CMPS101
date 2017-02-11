@@ -8,8 +8,9 @@ Table of Contents:
 -Makefile           Compiles the files and creates an executable file called Sparse
 -List.java          ADT- implements double linked list and inserts to back and front,
                     also uses a cursor to move around the list.
--MatrixClient.java  Some test cases for the Matrix class.
+-ListTest.java      some test cases for the List class.
+-Matrix             Creates an nxn matrix and uses array of list each responsible for one row, if an entry is zero it doesn't add it to the list.
+-MatrixTest.java    Some test cases for the Matrix class.
 -Sparse.java        Main program that takes in two command arguments(1.inputfile 2.outputfile) 
                     reads the first line which will determine the size of the Matrix, sorts the Matrix then does mathematical operations then outputs it                      to  the outputfile.
--Matrix             Creates an nxn matrix and uses array of list each responsible for one row, if an entry is zero it doesn't add it to the list.
 (total files:6)
