@@ -1,6 +1,10 @@
-package pa3;
-
-
+// ---------------------------------------------------------------
+// Sepehr Raissian
+// Sraissia@ucsc.edu
+// CMPS101 pa3
+// 2/11/17
+// List.java
+// ----------------------------------------------------------------
 public class List{
 	private class Node
 	{

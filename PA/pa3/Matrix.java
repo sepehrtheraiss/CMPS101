@@ -1,6 +1,10 @@
-package pa3;
-
-
+// ---------------------------------------------------------------
+// Sepehr Raissian
+// Sraissia@ucsc.edu
+// CMPS101 pa3
+// 2/11/17
+// Matrix.java
+// ----------------------------------------------------------------
 public class Matrix {
 	// ENRTY ************************************************
 	private class Entry
@@ -14,7 +18,7 @@ public class Matrix {
 		}
 		public String toString()
 		{
-	         return new String("("+column+","+value+")");
+	         return new String("("+column+", "+value+")");
 		}
 		public boolean equal(Entry e)
 		{
