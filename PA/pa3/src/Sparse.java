@@ -60,7 +60,7 @@ public class Sparse {
 		out.println("Transpose(A) =\n"+A.transpose());
 		out.println("A*B =\n"+A.mult(B));
 		out.println("B*B =\n"+B.mult(B));
-                out.close();
+        out.close();
 		
 	}
 

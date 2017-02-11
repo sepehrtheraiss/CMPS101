@@ -174,7 +174,7 @@ public class Matrix {
 			L[i-1].append(new Entry(j,x));
 			NNZ++;
 		}
-		else
+		else if(x != 0)
 		{
 			L[i-1].moveBack();
 			while(L[i-1].index() != -1 && ((Entry)L[i-1].get()).column > j)
@@ -220,7 +220,7 @@ public class Matrix {
 	Matrix add(Matrix M)
 	{
 		Matrix n = new Matrix(size);
-		boolean equal = this.equals(M);
+		boolean equal = (M == this);
 		boolean NNZE1;
 		boolean NNZE2;
 		Entry e1=null;
@@ -280,7 +280,7 @@ public class Matrix {
 	Matrix sub(Matrix M)
 	{
 		Matrix n = new Matrix(size);
-		boolean equal = this.equals(M);
+		boolean equal = (M == this);
 		boolean NNZE1;
 		boolean NNZE2;
 		Entry e1=null;
@@ -310,7 +310,7 @@ public class Matrix {
 							n.changeEntry(i+1, e1.column, value);
 						}
 						L[i].moveNext();
-						if(!equal)
+						if(!equal) // cant be the same refference
 						{
 							M.L[i].moveNext();
 						}
