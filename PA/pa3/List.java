@@ -1,5 +1,3 @@
-package pa3;
-
 
 public class List{
 	private class Node

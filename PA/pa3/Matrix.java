@@ -1,5 +1,3 @@
-package pa3;
-
 
 public class Matrix {
 	// ENRTY ************************************************
@@ -14,7 +12,7 @@ public class Matrix {
 		}
 		public String toString()
 		{
-	         return new String("("+column+","+value+")");
+	         return new String("("+column+", "+value+")");
 		}
 		public boolean equal(Entry e)
 		{
