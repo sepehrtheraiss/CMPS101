@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
 
-		File file = new File("/Users/sepehr/Desktop/in2");
+		File file = new File("/Users/sepehr/Desktop/in5");
 		Scanner in =  new Scanner(file);
 		int n,a,b;
 		n = Integer.parseInt(in.next());
@@ -34,7 +34,6 @@ public class Main {
 			}
 			else
 			{
-				System.out.println("last");
 				in.nextLine();
 			}
 		}
