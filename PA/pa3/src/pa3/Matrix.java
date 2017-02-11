@@ -281,6 +281,7 @@ public class Matrix {
 		boolean NNZE2;
 		Entry e1=null;
 		Entry e2=null;
+		double value;
 		for(int i =0;i<size;i++)
 		{
 			L[i].moveFront();
@@ -299,7 +300,11 @@ public class Matrix {
 				{
 					if(e1.column == e2.column)
 					{
-						n.changeEntry(i+1, e1.column, e1.value - e2.value);
+						value = e1.value - e2.value;
+						if(value != 0)
+						{
+							n.changeEntry(i+1, e1.column, value);
+						}
 						L[i].moveNext();
 						if(!equal)
 						{
@@ -390,15 +395,15 @@ public class Matrix {
 			if(L[i].length() != 0)
 			{
 				buff.append(i+1+":");
+				L[i].moveFront();
+				while(L[i].index() != -1)
+				{
+					e = (Entry)L[i].get();
+					buff.append(" "+e.toString());
+					L[i].moveNext();
+				}
+				buff.append("\n");
 			}
-			L[i].moveFront();
-			while(L[i].index() != -1)
-			{
-				e = (Entry)L[i].get();
-				buff.append(" "+e.toString());
-				L[i].moveNext();
-			}
-			buff.append("\n");
 		}
 		return buff.toString();
 	}

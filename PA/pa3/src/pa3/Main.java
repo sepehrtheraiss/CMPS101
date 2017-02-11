@@ -39,16 +39,16 @@ public class Main {
 			}
 		}
 		in.close();
-		System.out.println("A:\n"+A);
-		System.out.println("B:\n"+B);
-		System.out.println(A.equals(A));
+		System.out.println("A has "+A.getNNZ()+" none-zero entries\n"+A);
+		System.out.println("B has "+B.getNNZ()+" none-zero entries:\n"+B);
+		System.out.println("(1.5)*A=\n"+A.scalarMult(1.5));
 		System.out.println("A+B=\n"+A.add(B));
 		System.out.println("A+A=\n"+A.add(A));
 		System.out.println("B-A=\n"+B.sub(A));
-//		System.out.println("A-A\n"+A.sub(A));
-//		System.out.println("Transpose(A)\n"+A.transpose());
-//		System.out.println("A*B =\n"+A.mult(B));
-//		System.out.println("B*B =\n"+B.mult(B));
+		System.out.println("A-A=\n"+A.sub(A));
+		System.out.println("Transpose(A)\n"+A.transpose());
+		System.out.println("A*B =\n"+A.mult(B));
+		System.out.println("B*B =\n"+B.mult(B));
 		
 	}
 
