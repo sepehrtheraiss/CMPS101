@@ -42,9 +42,9 @@ public class Main {
 		System.out.println("A:\n"+A);
 		System.out.println("B:\n"+B);
 		System.out.println(A.equals(A));
-		System.out.println("A+B\n"+A.add(B));
-//		System.out.println("A+A\n"+A.add(A));
-//		System.out.println("B-A\n"+B.sub(A));
+		System.out.println("A+B=\n"+A.add(B));
+		System.out.println("A+A=\n"+A.add(A));
+		System.out.println("B-A=\n"+B.sub(A));
 //		System.out.println("A-A\n"+A.sub(A));
 //		System.out.println("Transpose(A)\n"+A.transpose());
 //		System.out.println("A*B =\n"+A.mult(B));

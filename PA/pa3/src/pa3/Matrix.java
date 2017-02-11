@@ -16,6 +16,17 @@ public class Matrix {
 		{
 	         return new String("("+column+","+value+")");
 		}
+		public boolean equal(Entry e)
+		{
+			if(this.column == e.column && this.value == e.value)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}// end of class Entry
 	//*************************************************************
 	// DATA FIELDS ************************************************
@@ -64,10 +75,6 @@ public class Matrix {
 			{
 				return false;
 			}
-//			else if( this.size == 0 && B.size == 0)
-//			{
-//				return true;
-//			}
 			else
 			{
 				for(int i =0;i<size;i++)
@@ -80,17 +87,10 @@ public class Matrix {
 						Entry e2 = (Entry)B.L[i].get();
 						while(B.L[i].index() != -1 && L[i].index() != -1)
 						{
-							if(e1.column == e2.column)
+							if(e1.equal(e2))
 							{
-								if(e1.value == e2.value)
-								{
-									L[i].moveNext();
-									B.L[i].moveNext();
-								}
-								else
-								{
-									return false;
-								}
+								L[i].moveNext();
+								B.L[i].moveNext();	
 							}
 							else
 							{
@@ -217,55 +217,57 @@ public class Matrix {
 	{
 		Matrix n = new Matrix(size);
 		boolean equal = this.equals(M);
+		boolean NNZE1;
+		boolean NNZE2;
+		Entry e1=null;
+		Entry e2=null;
 		for(int i =0;i<size;i++)
 		{
-			L[i].moveFront();  // e1
-			M.L[i].moveFront(); // e2
-			Entry e1 = (Entry) L[i].get();
-			Entry e2 = (Entry) M.L[i].get();
-			while(M.L[i].index() != -1 && L[i].index() != -1)
+			L[i].moveFront();
+			M.L[i].moveFront();
+			NNZE1=true;
+			NNZE2=true;
+			while(NNZE1 || NNZE2)// it will only exit when both list reach index of -1
 			{
-				if(e1.column == e2.column) // if the same column 
+				if(L[i].index() != -1) {e1 =(Entry) L[i].get();NNZE1 = true;}
+				else{NNZE1 = false;}
+				
+				if(M.L[i].index() != -1){e2 =(Entry) M.L[i].get();NNZE2 = true;}
+				else{NNZE2 = false;}
+				
+				if(NNZE1 && NNZE2)
 				{
-					//System.out.println("e1: "+e1.column+":"+e1.value);
-					//System.out.println("e2: "+e1.column+":"+e2.value);
-					n.changeEntry(i+1, e1.column, e1.value + e2.value);
-					if(!equal)// because if so it uses the same reference
+					if(e1.column == e2.column)
 					{
+						n.changeEntry(i+1, e1.column, e1.value + e2.value);
+						L[i].moveNext();
+						if(!equal)
+						{
+							M.L[i].moveNext();
+						}
+					}
+					else if(e1.column > e2.column) // e2 is the smaller column, meaning e1 had a zero entry
+					{
+						n.changeEntry(i+1, e2.column, e2.value);
 						M.L[i].moveNext();
 					}
+					else if(e1.column < e2.column) // e1 is the smaller column, meaning e2 had a zero entry
+					{
+						n.changeEntry(i+1, e1.column, e1.value);
+						L[i].moveNext();
+					}
+				}// end if
+				else if(NNZE1)
+				{
+					n.changeEntry(i+1,e1.column,e1.value);
 					L[i].moveNext();
 				}
-				else if(e1.column > e2.column) // e1.column has a zero entry
+				else if(NNZE2)
 				{
-					//System.out.println("else e2: "+e2.column+":"+e2.value);
 					n.changeEntry(i+1, e2.column, e2.value);
 					M.L[i].moveNext();
 				}
-				else if (e1.column < e2.column) // e2.column has a zero entry
-				{
-					//System.out.println("else e1: "+e1.column+":"+e1.value);
-					n.changeEntry(i+1, e1.column, e1.value);
-					L[i].moveNext();
-				}
-				if(L[i].index() != -1 )
-				{
-					e1 = (Entry) L[i].get();
-				}
-				if(M.L[i].index() != -1)
-				{
-					e2 = (Entry) M.L[i].get();
-				}
-			}//end while
-			// last entry that doesn't get added because the loop exits when one of them hits -1
-			if(L[i].index() != -1)
-			{
-				n.changeEntry(i+1, e1.column, e1.value);
-			}
-			else if(M.L[i].index() != -1)
-			{
-				n.changeEntry(i+1, e2.column, e2.value);
-			}
+			}// end while
 		}
 		return n;
 	}
@@ -275,51 +277,57 @@ public class Matrix {
 	{
 		Matrix n = new Matrix(size);
 		boolean equal = this.equals(M);
+		boolean NNZE1;
+		boolean NNZE2;
+		Entry e1=null;
+		Entry e2=null;
 		for(int i =0;i<size;i++)
 		{
-			L[i].moveFront();  // e1
-			M.L[i].moveFront(); // e2
-			Entry e1 = (Entry) L[i].get();
-			Entry e2 = (Entry) M.L[i].get();
-			while(M.L[i].index() != -1 && L[i].index() != -1)
+			L[i].moveFront();
+			M.L[i].moveFront();
+			NNZE1=true;
+			NNZE2=true;
+			while(NNZE1 || NNZE2)// it will only exit when both list reach index of -1
 			{
-				if(e1.column == e2.column) // if the same column 
+				if(L[i].index() != -1) {e1 =(Entry) L[i].get();NNZE1 = true;}
+				else{NNZE1 = false;}
+				
+				if(M.L[i].index() != -1){e2 =(Entry) M.L[i].get();NNZE2 = true;}
+				else{NNZE2 = false;}
+				
+				if(NNZE1 && NNZE2)
 				{
-					n.changeEntry(i+1, e1.column, e1.value - e2.value);
-					if(!equal)// because if so it uses the same reference
+					if(e1.column == e2.column)
 					{
+						n.changeEntry(i+1, e1.column, e1.value - e2.value);
+						L[i].moveNext();
+						if(!equal)
+						{
+							M.L[i].moveNext();
+						}
+					}
+					else if(e1.column > e2.column) // e2 is the smaller column, meaning e1 had a zero entry
+					{
+						n.changeEntry(i+1, e2.column, e2.value*-1);
 						M.L[i].moveNext();
 					}
+					else if(e1.column < e2.column) // e1 is the smaller column, meaning e2 had a zero entry
+					{
+						n.changeEntry(i+1, e1.column, e1.value);
+						L[i].moveNext();
+					}
+				}// end if
+				else if(NNZE1)
+				{
+					n.changeEntry(i+1,e1.column,e1.value);
 					L[i].moveNext();
 				}
-				else if(e1.column > e2.column) // e1.column has a zero entry
+				else if(NNZE2)
 				{
 					n.changeEntry(i+1, e2.column, e2.value*-1);
 					M.L[i].moveNext();
 				}
-				else if (e1.column < e2.column) // e2.column has a zero entry
-				{
-					n.changeEntry(i+1, e1.column, e1.value*-1);
-					L[i].moveNext();
-				}
-				if(L[i].index() != -1 )
-				{
-					e1 = (Entry) L[i].get();
-				}
-				if(M.L[i].index() != -1)
-				{
-					e2 = (Entry) M.L[i].get();
-				}
-			}//end while
-			// last entry that doesn't get added because the loop exits when one of them hits -1
-			if(L[i].index() != -1)
-			{
-				n.changeEntry(i+1, e1.column, e1.value);
-			}
-			else if(M.L[i].index() != -1)
-			{
-				n.changeEntry(i+1, e2.column, e2.value);
-			}
+			}// end while
 		}
 		return n;
 	}
@@ -402,22 +410,19 @@ public class Matrix {
 		
 		while(P.index() != -1 && Q.index() != -1)
 		{
-			if(P.index() != -1 && Q.index() != -1)
+			if(((Entry)P.get()).column >((Entry)Q.get()).column) // P had a zero entry
 			{
-				if(((Entry)P.get()).column >((Entry)Q.get()).column) // P had a zero entry
-				{
-					Q.moveNext(); // since it has to be multiplied by a zero we can just ignore adding the number
-				}
-				else if(((Entry)P.get()).column <((Entry)Q.get()).column)// Q had a zero entry
-				{
-					P.moveNext();
-				}
-				else
-				{
-					value += ((Entry)P.get()).value * ((Entry)Q.get()).value;
-					P.moveNext();
-					Q.moveNext();
-				}
+				Q.moveNext(); // since it has to be multiplied by a zero we can just ignore adding the number
+			}
+			else if(((Entry)P.get()).column <((Entry)Q.get()).column)// Q had a zero entry
+			{
+				P.moveNext();
+			}
+			else
+			{
+				value += ((Entry)P.get()).value * ((Entry)Q.get()).value;
+				P.moveNext();
+				Q.moveNext();
 			}
 		}//end while
 
