@@ -64,40 +64,47 @@ public class Matrix {
 			{
 				return false;
 			}
+//			else if( this.size == 0 && B.size == 0)
+//			{
+//				return true;
+//			}
 			else
 			{
 				for(int i =0;i<size;i++)
 				{
 					B.L[i].moveFront();
 					L[i].moveFront();
-					Entry e1 = (Entry)L[i].get();
-					Entry e2 = (Entry)B.L[i].get();
-					while(B.L[i].index() != -1 && L[i].index() != -1)
+					if(L[i].length() != 0 && B.L[i].length() != 0)
 					{
-						if(e1.column == e2.column)
+						Entry e1 = (Entry)L[i].get();
+						Entry e2 = (Entry)B.L[i].get();
+						while(B.L[i].index() != -1 && L[i].index() != -1)
 						{
-							if(e1.value == e2.value)
+							if(e1.column == e2.column)
 							{
-								L[i].moveNext();
-								B.L[i].moveNext();
+								if(e1.value == e2.value)
+								{
+									L[i].moveNext();
+									B.L[i].moveNext();
+								}
+								else
+								{
+									return false;
+								}
 							}
 							else
 							{
 								return false;
 							}
-						}
-						else
-						{
-							return false;
-						}
-						if(L[i].index() != -1 )
-						{
-							e1 = (Entry) L[i].get();
-						}
-						if(B.L[i].index() != -1)
-						{
-							e2 = (Entry) B.L[i].get();
-						}	
+							if(L[i].index() != -1 )
+							{
+								e1 = (Entry) L[i].get();
+							}
+							if(B.L[i].index() != -1)
+							{
+								e2 = (Entry) B.L[i].get();
+							}	
+						}// end while
 					}
 				}
 				return true;
@@ -157,42 +164,37 @@ public class Matrix {
 		{
 			throw new RuntimeException("j < 1");
 		}
-		// row i-1 is empty 
-		if(L[i-1].length() == 0 && x != 0)
+		
+		if(L[i-1].length() ==0 && x != 0)
 		{
 			L[i-1].append(new Entry(j,x));
 			NNZ++;
 		}
-		// insert into the correct column
 		else
 		{
-			L[i-1].moveFront();
-			Entry e = new Entry(j,x);
-			Entry t = null;
-			// gets each element and inserts at the correct position
-			while(L[i-1].index() != -1)
+			L[i-1].moveBack();
+			while(L[i-1].index() != -1 && ((Entry)L[i-1].get()).column > j)
 			{
-				t = (Entry) L[i-1].get();
-				if(j > t.column)
-				{
-					L[i-1].moveNext();
-				}
-				else if(j == t.column) // for replacement of entry 
-				{
-					L[i-1].insertAfter(e);
-					L[i-1].delete();
-				}
-				else
-				{
-					L[i-1].insertAfter(e);
-				}
-				if(L[i-1].index() == -1)
-				{
-					L[i-1].append(e);
-				}
+				L[i-1].movePrev();
+			}
+			if(L[i-1].index() == -1)
+			{
+				L[i-1].prepend(new Entry(j,x));
+				NNZ++;
+			}
+			else if(((Entry)L[i-1].get()).column == j)
+			{
+				L[i-1].insertAfter(new Entry(j,x));
+				L[i-1].delete();
+			}
+			else
+			{
+				NNZ++;
+				L[i-1].insertAfter(new Entry(j,x));
 			}
 		}
 	}
+		
 	// returns a new Matrix that is the scalar product of this Matrix with x
 	Matrix scalarMult(double x)
 	{
@@ -377,7 +379,10 @@ public class Matrix {
 		}
 		for(int i =0;i<size;i++)
 		{
-			buff.append(i+1+":");
+			if(L[i].length() != 0)
+			{
+				buff.append(i+1+":");
+			}
 			L[i].moveFront();
 			while(L[i].index() != -1)
 			{
