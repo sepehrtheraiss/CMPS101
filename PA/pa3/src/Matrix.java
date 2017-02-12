@@ -129,7 +129,7 @@ public class Matrix {
 		{
 			L[0].clear();
 		}
-		NNZ = size = 0;
+		NNZ = 0;
 	}
 	// returns a new Matrix having the same entries as this Matrix
 	Matrix copy()

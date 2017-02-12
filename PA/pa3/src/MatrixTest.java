@@ -45,10 +45,17 @@ public class MatrixTest {
 		C.changeEntry(1, 1, 3);
 		System.out.println(A.sub(C));
 		A = C.copy();
+		System.out.println(A.equals(C));
+		System.out.println(A.equals(B));
 		System.out.println("A-C\n"+A.sub(C));
+		System.out.println("C-C\n"+C.sub(C));
 		System.out.println("A*C\n"+A.mult(C));
 		C.makeZero();
-		System.out.println(C);
+//		System.out.println(C);
 		System.out.println(C.getNNZ());
+		B.makeZero();
+		C.changeEntry(1, 1, 1);
+		B.changeEntry(1, 1, 1);
+		System.out.println(C.equals(B));		
 	}
 }
