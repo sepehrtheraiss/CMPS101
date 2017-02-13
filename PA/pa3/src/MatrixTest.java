@@ -43,10 +43,11 @@ public class MatrixTest {
 		System.out.println(A.sub(A));
 		Matrix C = new Matrix(2);
 		C.changeEntry(1, 1, 3);
-		System.out.println(A.sub(C));
+		System.out.println("A-c=\n"+A.sub(C));
 		A = C.copy();
-		System.out.println(A.equals(C));
-		System.out.println(A.equals(B));
+		System.out.println("A==C\n"+A.equals(C));
+		System.out.println("A==B\n"+A.equals(B));
+		System.out.println("A==A\n"+A.equals(A));
 		System.out.println("A-C\n"+A.sub(C));
 		System.out.println("C-C\n"+C.sub(C));
 		System.out.println("A*C\n"+A.mult(C));
@@ -54,6 +55,7 @@ public class MatrixTest {
 //		System.out.println(C);
 		System.out.println(C.getNNZ());
 		B.makeZero();
+		System.out.println("B==C\n"+B.equals(C));
 		C.changeEntry(1, 1, 1);
 		B.changeEntry(1, 1, 1);
 		System.out.println(C.equals(B));		
