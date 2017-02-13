@@ -223,85 +223,82 @@ public class Matrix {
 	// returns a new Matrix that is the sum of this Matrix with M
 	Matrix add(Matrix M)
 	{
-		if(getSize() == M.getSize())
+		if(getSize() != M.getSize())
 		{
-			Matrix n = new Matrix(size);
-			boolean equal = (M == this);
-			boolean NNZE1;
-			boolean NNZE2;
-			Entry e1=null;
-			Entry e2=null;
-			for(int i =0;i<size;i++)
+			throw new RuntimeException("getSize()!=M.getSize()");
+		}
+		Matrix n = new Matrix(size);
+		boolean equal = (M == this);
+		boolean NNZE1;
+		boolean NNZE2;
+		Entry e1=null;
+		Entry e2=null;
+		for(int i =0;i<size;i++)
+		{
+			L[i].moveFront();
+			M.L[i].moveFront();
+			NNZE1=true;
+			NNZE2=true;
+			while(NNZE1 || NNZE2)// it will only exit when both list reach index of -1
 			{
-				L[i].moveFront();
-				M.L[i].moveFront();
-				NNZE1=true;
-				NNZE2=true;
-				while(NNZE1 || NNZE2)// it will only exit when both list reach index of -1
+				if(L[i].index() != -1) // so we get an error
 				{
-					if(L[i].index() != -1) // so we get an error
+					e1 =(Entry) L[i].get();NNZE1 = true;
+				}
+				else
+				{
+					NNZE1 = false;
+				}
+				
+				if(M.L[i].index() != -1)// so we get an error
+				{
+					e2 =(Entry) M.L[i].get();NNZE2 = true;
+				}
+				else
+				{
+					NNZE2 = false;
+				}
+				
+				if(NNZE1 && NNZE2) // if both entries exist
+				{
+					// case 1: same column
+					if(e1.column == e2.column)
 					{
-						e1 =(Entry) L[i].get();NNZE1 = true;
-					}
-					else
-					{
-						NNZE1 = false;
-					}
-					
-					if(M.L[i].index() != -1)// so we get an error
-					{
-						e2 =(Entry) M.L[i].get();NNZE2 = true;
-					}
-					else
-					{
-						NNZE2 = false;
-					}
-					
-					if(NNZE1 && NNZE2) // if both entries exist
-					{
-						// case 1: same column
-						if(e1.column == e2.column)
+						n.changeEntry(i+1, e1.column, e1.value + e2.value);
+						L[i].moveNext();
+						if(!equal) // if the same reference then moves it twice
 						{
-							n.changeEntry(i+1, e1.column, e1.value + e2.value);
-							L[i].moveNext();
-							if(!equal) // if the same reference then moves it twice
-							{
-								M.L[i].moveNext();
-							}
-						}
-						// case 2: e2 is smaller so we add it then move it to the next
-						else if(e1.column > e2.column) // e2 is the smaller column, meaning e1 had a zero entry
-						{
-							n.changeEntry(i+1, e2.column, e2.value);
 							M.L[i].moveNext();
 						}
-						// case 3: e1 is smaller so we add it then move it to the next
-						else if(e1.column < e2.column) // e1 is the smaller column, meaning e2 had a zero entry
-						{
-							n.changeEntry(i+1, e1.column, e1.value);
-							L[i].moveNext();
-						}
-					}// end if
-					// if e2 doesn't exist we add e1
-					else if(NNZE1)
-					{
-						n.changeEntry(i+1,e1.column,e1.value);
-						L[i].moveNext();
 					}
-					// if e1 doesn't exist we add e1
-					else if(NNZE2)
+					// case 2: e2 is smaller so we add it then move it to the next
+					else if(e1.column > e2.column) // e2 is the smaller column, meaning e1 had a zero entry
 					{
 						n.changeEntry(i+1, e2.column, e2.value);
 						M.L[i].moveNext();
 					}
-				}// end while
-			}
-			return n;
+					// case 3: e1 is smaller so we add it then move it to the next
+					else if(e1.column < e2.column) // e1 is the smaller column, meaning e2 had a zero entry
+					{
+						n.changeEntry(i+1, e1.column, e1.value);
+						L[i].moveNext();
+					}
+				}// end if
+				// if e2 doesn't exist we add e1
+				else if(NNZE1)
+				{
+					n.changeEntry(i+1,e1.column,e1.value);
+					L[i].moveNext();
+				}
+				// if e1 doesn't exist we add e1
+				else if(NNZE2)
+				{
+					n.changeEntry(i+1, e2.column, e2.value);
+					M.L[i].moveNext();
+				}
+			}// end while
 		}
-		else
-		{
-			throw new RuntimeException("getSize()!=M.getSize()");
-		}
+		return n;
 	}
 	// sub()
 	// pre: getSize()==M.getSize()
@@ -310,88 +307,85 @@ public class Matrix {
 	{
 		if(getSize() == M.getSize())
 		{
-			Matrix n = new Matrix(size);
-			boolean equal = (M == this);
-			boolean NNZE1;
-			boolean NNZE2;
-			Entry e1=null;
-			Entry e2=null;
-			double value;
-			for(int i =0;i<size;i++)
+			throw new RuntimeException("getSize()!=M.getSize()");
+		}
+		Matrix n = new Matrix(size);
+		boolean equal = (M == this);
+		boolean NNZE1;
+		boolean NNZE2;
+		Entry e1=null;
+		Entry e2=null;
+		double value;
+		for(int i =0;i<size;i++)
+		{
+			L[i].moveFront();
+			M.L[i].moveFront();
+			NNZE1=true;
+			NNZE2=true;
+			while(NNZE1 || NNZE2)// it will only exit when both list reach index of -1
 			{
-				L[i].moveFront();
-				M.L[i].moveFront();
-				NNZE1=true;
-				NNZE2=true;
-				while(NNZE1 || NNZE2)// it will only exit when both list reach index of -1
+				if(L[i].index() != -1) // so we get an error
 				{
-					if(L[i].index() != -1) // so we get an error
+					e1 =(Entry) L[i].get();NNZE1 = true;
+				}
+				else
+				{
+					NNZE1 = false;
+				}
+				
+				if(M.L[i].index() != -1) // so we get an error
+				{
+					e2 =(Entry) M.L[i].get();NNZE2 = true;
+				}
+				else
+				{
+					NNZE2 = false;
+				}
+				
+				if(NNZE1 && NNZE2)// if both entries exist
+				{
+					// case 1: same column
+					if(e1.column == e2.column)
 					{
-						e1 =(Entry) L[i].get();NNZE1 = true;
-					}
-					else
-					{
-						NNZE1 = false;
-					}
-					
-					if(M.L[i].index() != -1) // so we get an error
-					{
-						e2 =(Entry) M.L[i].get();NNZE2 = true;
-					}
-					else
-					{
-						NNZE2 = false;
-					}
-					
-					if(NNZE1 && NNZE2)// if both entries exist
-					{
-						// case 1: same column
-						if(e1.column == e2.column)
+						value = e1.value - e2.value;
+						if(value != 0)
 						{
-							value = e1.value - e2.value;
-							if(value != 0)
-							{
-								n.changeEntry(i+1, e1.column, value);
-							}
-							L[i].moveNext();
-							if(!equal) // if the same reference then moves it twice
-							{
-								M.L[i].moveNext();
-							}
+							n.changeEntry(i+1, e1.column, value);
 						}
-						// case 2: e2 is smaller so we add it then move it to the next
-						else if(e1.column > e2.column) // e2 is the smaller column, meaning e1 had a zero entry
+						L[i].moveNext();
+						if(!equal) // if the same reference then moves it twice
 						{
-							n.changeEntry(i+1, e2.column, e2.value*-1);
 							M.L[i].moveNext();
 						}
-						// case 3: e1 is smaller so we add it then move it to the next
-						else if(e1.column < e2.column) // e1 is the smaller column, meaning e2 had a zero entry
-						{
-							n.changeEntry(i+1, e1.column, e1.value);
-							L[i].moveNext();
-						}
-					}// end if
-					// if e2 doesn't exist we add e2
-					else if(NNZE1)
-					{
-						n.changeEntry(i+1,e1.column,e1.value);
-						L[i].moveNext();
 					}
-					// if e1 doesn't exist we add e1
-					else if(NNZE2)
+					// case 2: e2 is smaller so we add it then move it to the next
+					else if(e1.column > e2.column) // e2 is the smaller column, meaning e1 had a zero entry
 					{
 						n.changeEntry(i+1, e2.column, e2.value*-1);
 						M.L[i].moveNext();
 					}
-				}// end while
-			}
-			return n;
+					// case 3: e1 is smaller so we add it then move it to the next
+					else if(e1.column < e2.column) // e1 is the smaller column, meaning e2 had a zero entry
+					{
+						n.changeEntry(i+1, e1.column, e1.value);
+						L[i].moveNext();
+					}
+				}// end if
+				// if e2 doesn't exist we add e2
+				else if(NNZE1)
+				{
+					n.changeEntry(i+1,e1.column,e1.value);
+					L[i].moveNext();
+				}
+				// if e1 doesn't exist we add e1
+				else if(NNZE2)
+				{
+					n.changeEntry(i+1, e2.column, e2.value*-1);
+					M.L[i].moveNext();
+				}
+			}// end while
 		}
-		else
-		{
-			throw new RuntimeException("getSize()!=M.getSize()");
-		}
+		return n;
 	}
 	// transpose()
 	// pre: none
@@ -425,26 +419,23 @@ public class Matrix {
 	{
 		if(getSize()==M.getSize())
 		{
-			Matrix n = new Matrix(size);
-			M = M.transpose();
-			double value = 0.0;
-			for(int i =0;i<size;i++) // iterate thru each row this.Matrix
-			{
-				for(int j=0;j<size;j++)// iterate thru each row M.Matrix
-				{
-					value = dot(L[i],M.L[j]);// gets the value of the whole row
-					if(value != 0)
-					{
-						n.changeEntry(i+1, j+1,value);
-					}
-				}
-			}
-			return n;
-		}
-		else
-		{
 			throw new RuntimeException("getSize()!=M.getSize()");
 		}
+		Matrix n = new Matrix(size);
+		M = M.transpose();
+		double value = 0.0;
+		for(int i =0;i<size;i++) // iterate thru each row this.Matrix
+		{
+			for(int j=0;j<size;j++)// iterate thru each row M.Matrix
+			{
+				value = dot(L[i],M.L[j]);// gets the value of the whole row
+				if(value != 0)
+				{
+					n.changeEntry(i+1, j+1,value);
+				}
+			}
+		}
+		return n;
 	}	
 	//****************************************************************************
 	// Other functions
