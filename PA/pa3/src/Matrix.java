@@ -305,7 +305,7 @@ public class Matrix {
 	// returns a new Matrix that is the difference of this Matrix with M
 	Matrix sub(Matrix M)
 	{
-		if(getSize() == M.getSize())
+		if(getSize() != M.getSize())
 		{
 			throw new RuntimeException("getSize()!=M.getSize()");
 		}
@@ -417,7 +417,7 @@ public class Matrix {
 	// returns a new Matrix that is the product of this Matrix with M
 	Matrix mult(Matrix M)
 	{
-		if(getSize()==M.getSize())
+		if(getSize()!=M.getSize())
 		{
 			throw new RuntimeException("getSize()!=M.getSize()");
 		}
