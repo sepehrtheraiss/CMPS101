@@ -39,7 +39,7 @@ public class MatrixClient{
 
       Matrix F = B.transpose();
       System.out.println(F.getNNZ());
-      System.out.println(F);
+      System.out.println("tarns=\n"+F);
 
       Matrix G = B.mult(B);
       System.out.println(G.getNNZ());
