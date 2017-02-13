@@ -9,14 +9,9 @@ Table of Contents:
 -List.java          ADT- implements double linked list and inserts to back and front,
                     also uses a cursor to move around the list.
 -ListTest.java      some test cases for the List class.
--Matrix             Creates an nxn matrix and uses array of list, each responsible for one row, if an entry is zero it doesn't add it to the list. Has some
-                    Matrix math operations.
+-Matrix             Creates an nxn matrix and uses array of list, each responsible for one row, if an entry is zero it doesn't add it to the list.
+                    Does some Matrix math operations.
 -MatrixTest.java    Some test cases for the Matrix class.
 -Sparse.java        Main program that takes in two command arguments(1.inputfile 2.outputfile) 
-<<<<<<< HEAD
-                    reads the first line which will determine the size of the Matrix, sorts the Matrix then does mathematical operations, then outputs it                      to the outputfile.
-(total files:6)
-=======
                     reads the first line which will determine the size of the Matrix, sorts the Matrix then does mathematical operations then outputs it                      to  the outputfile.
 (total files:7)
->>>>>>> 6d7e9f7c7cd7cfe2975011648d9d4c1d9a65181d
