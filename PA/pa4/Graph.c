@@ -165,6 +165,22 @@ void getPath(List L, Graph G, int u)
 
 }
 /*** Manipulation procedures ***/
+// makeNUll()
+// pre: G != NULL
+// deletes all edges of G, restoring it to its original (no edge) state.
+void makeNull(Graph G)
+{
+    if(G == NULL)
+    {
+        printf("Graph Error: Calling makeNull() on NULL Graph reference\n");
+        exit(EXIT_FAILURE);
+    }
+    for(int i =1 ;i<G->n_vertices+1;i++)
+    {
+        clear(G->list[i]);
+    }
+
+}
 // addEdge()
 // pre: G != NULL 1<=u<=getOrder() && 1<=v<=getOrder()
 void addEdge(Graph G, int u, int v)
