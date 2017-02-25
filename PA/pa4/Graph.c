@@ -68,6 +68,7 @@ void freeGraph(Graph* pG)
 /*** Access functions ***/
 // getOrder()
 // pre: G != NULL
+// returns the number of vertices
 int getOrder(Graph G)
 {
     if( G==NULL ){
@@ -78,6 +79,7 @@ int getOrder(Graph G)
 }
 // getSize()
 // pre: G != NULL
+// returns the number of edges
 int getSize(Graph G)
 {
     if( G==NULL ){
@@ -88,6 +90,8 @@ int getSize(Graph G)
 }
 // getSource()
 // pre: G != NULL
+// returns the source vertex most recently used in function BFS(),
+// or NIL if BFS() has not yet been called.
 int getSource(Graph G)
 {
     if( G==NULL ){
@@ -98,6 +102,8 @@ int getSource(Graph G)
 }
 // getParent()
 // pre: G != NULL 1<=u<=getOrder()
+// returns the parent of vertex u in the BreadthFirst tree created by BFS(),
+// or NIL if BFS() has not yet been called
 int getParent(Graph G, int u)
 {
     if( G==NULL ){
@@ -118,6 +124,8 @@ int getParent(Graph G, int u)
 }
 // getDist()
 // pre: G != NULL 1<=u<=getOrder()
+// returns the distance from the most recent BFS source to vertex u,
+// or INF if BFS() has not yet been called
 int getDist(Graph G, int u)
 {
     if( G==NULL ){
@@ -158,22 +166,67 @@ void getPath(List L, Graph G, int u)
 }
 /*** Manipulation procedures ***/
 // addEdge()
-// pre: G != NULL
+// pre: G != NULL 1<=u<=getOrder() && 1<=v<=getOrder()
 void addEdge(Graph G, int u, int v)
 {
     if( G==NULL ){
         printf("Graph Error: Calling addEdge() on NULL Graph reference\n");
         exit(EXIT_FAILURE);
     }
+    if(u<1)
+    {
+        printf("Graph Error: Calling getPath() on u < 1\n");
+        exit(EXIT_FAILURE);
+    }
+    if(u > getOrder(G))
+    {
+        printf("Graph Error: Calling getPath() on u > getOrder()");
+        exit(EXIT_FAILURE);
+    }
+    if(v<1)
+    {
+        printf("Graph Error: Calling getPath() on v < 1\n");
+        exit(EXIT_FAILURE);
+    }
+    if(v > getOrder(G))
+    {
+        printf("Graph Error: Calling getPath() on v > getOrder()");
+        exit(EXIT_FAILURE);
+    }
+    append((G->list[u]),v);
+    append((G->list[v]),u);
+    G->n_edges++;
 }
 // addArc
-// pre: G != NULL
+// pre: G != NULL 1<=u<=getOrder() && 1<=v<=getOrder()
 void addArc(Graph G, int u, int v)
 {
     if( G==NULL ){
         printf("Graph Error: Calling addArc() on NULL Graph reference\n");
         exit(EXIT_FAILURE);
     }
+    if(u<1)
+    {
+        printf("Graph Error: Calling getPath() on u < 1\n");
+        exit(EXIT_FAILURE);
+    }
+    if(u > getOrder(G))
+    {
+        printf("Graph Error: Calling getPath() on u > getOrder()");
+        exit(EXIT_FAILURE);
+    }
+    if(v<1)
+    {
+        printf("Graph Error: Calling getPath() on v < 1\n");
+        exit(EXIT_FAILURE);
+    }
+    if(v > getOrder(G))
+    {
+        printf("Graph Error: Calling getPath() on v > getOrder()");
+        exit(EXIT_FAILURE);
+    }
+    append((G->list[u]),v);
+    G->n_edges++;
 }
 // BFS()
 // pre: G != NULL
@@ -192,5 +245,16 @@ void printGraph(FILE* out, Graph G)
     if( G==NULL ){
         printf("Graph Error: Calling printGraph() on NULL Graph reference\n");
         exit(EXIT_FAILURE);
+    }
+    for(int i=1;i<G->n_vertices+1;i++)
+    {
+        printf("%i: ",i);
+        moveFront(G->list[i]);
+        while(index(G->list[i])!= -1)
+        {
+            printf("%i ",get(G->list[i]));
+            moveNext(G->list[i]);
+        }
+        printf("\n");
     }
 }

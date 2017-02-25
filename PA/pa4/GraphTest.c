@@ -15,6 +15,17 @@ int main()
     //printf("%i\n",getDist(g,6));
     printf("%i\n",getDist(g,5));
     freeGraph(&g);
-    printf("%i\n",getDist(g,5));
+    //printf("%i\n",getDist(g,5));
+    g = newGraph(5);
+    addEdge(g,1,2);
+    addEdge(g,1,3);
+    addEdge(g,1,4);
+    addEdge(g,2,3);
+    //addEdge(g,6,1);
+    //addEdge(g,0,1);
+    //addEdge(g,5,0);
+    //addEdge(g,5,6);
+    printf("%i\n",getSize(g));
+    printGraph(stdout,g);
     return 0;
 }
