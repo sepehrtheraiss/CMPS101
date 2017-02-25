@@ -27,5 +27,6 @@ int main()
     //addEdge(g,5,6);
     printf("%i\n",getSize(g));
     printGraph(stdout,g);
+    freeGraph(&g);
     return 0;
 }
