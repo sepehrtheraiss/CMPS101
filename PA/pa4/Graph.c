@@ -34,9 +34,9 @@ Graph newGraph(int n)
 {
     Graph graph = malloc(sizeof(GraphObj));
     graph->list = malloc(sizeof(List)*(n+1));
-    graph->p = malloc(sizeof(int)*n+1);
-    graph->colors = malloc(sizeof(int)*n+1);
-    graph->d = malloc(sizeof(int)*n+1);
+    graph->p = malloc(sizeof(int)*(n+1));
+    graph->colors = malloc(sizeof(int)*(n+1));
+    graph->d = malloc(sizeof(int)*(n+1));
     graph->n_vertices = n;
     graph->n_edges = 0;
     graph->source = 0;
