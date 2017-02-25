@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c
+stdio.h
+-
+stdlib.h
+-
+List.h
+/Users/sepehr/Git/CMPS101/PA/Pa4/List.h
+Graph.h
+/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.h
+
+/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.h
+
+/Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c
+Graph.h
+/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.h
+
+/Users/sepehr/Git/CMPS101/PA/Pa4/List.c
+stdio.h
+-
+stdlib.h
+-
+List.h
+/Users/sepehr/Git/CMPS101/PA/Pa4/List.h
+
+/Users/sepehr/Git/CMPS101/PA/Pa4/List.h
+

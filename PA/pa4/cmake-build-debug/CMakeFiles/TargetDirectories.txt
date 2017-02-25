@@ -1,0 +1,3 @@
+/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles/Pa4.dir

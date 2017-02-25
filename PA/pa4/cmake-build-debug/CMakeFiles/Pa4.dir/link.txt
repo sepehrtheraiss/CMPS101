@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Pa4.dir/GraphTest.c.o CMakeFiles/Pa4.dir/List.c.o CMakeFiles/Pa4.dir/Graph.c.o  -o Pa4 
