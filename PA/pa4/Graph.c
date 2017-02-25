@@ -27,9 +27,13 @@ typedef struct GraphObj{
     int source; // label of the most recently visited vertex
 } GraphObj;
 
+/*** Constructors-Destructors ***/
+/**returns a Graph pointing to a newly created GraphObj representing a graph having
+n vertices and no edges***/
 Graph newGraph(int n)
 {
     Graph graph = malloc(sizeof(GraphObj));
+    graph->list = malloc(sizeof(List)*(n+1));
     graph->p = malloc(sizeof(int)*n+1);
     graph->colors = malloc(sizeof(int)*n+1);
     graph->d = malloc(sizeof(int)*n+1);
@@ -43,10 +47,23 @@ Graph newGraph(int n)
         graph->colors[i] = -1;
         graph->d[i] = INF;
     }
-
+    return graph;
 }
-
+/*** frees all dynamic memory associated with the Graph
+*pG, then sets the handle *pG to NULL.***/
+// freeGraph()
+// pre: *pG != NULL, pG != NULL
 void freeGraph(Graph* pG)
 {
-
+    if(pG!=NULL && *pG!=NULL) {
+        for(int i=1;i<=(*pG)->n_vertices+1;i++)
+        {
+            freeList(&((*pG)->list[i]));
+        }
+        free((*pG)->p);
+        free((*pG)->colors);
+        free((*pG)->d);
+        free(*pG);
+        *pG = NULL;
+    }
 }

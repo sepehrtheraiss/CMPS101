@@ -4,6 +4,7 @@
 #include "Graph.h"
 int main()
 {
-    Graph graph = newGraph(5);
+    Graph g = newGraph(5);
+    freeGraph(&g);
     return 0;
 }
