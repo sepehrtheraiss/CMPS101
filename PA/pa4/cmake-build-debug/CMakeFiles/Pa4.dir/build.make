@@ -46,122 +46,122 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /Users/sepehr/Git/CMPS101/PA/Pa4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug
 
 # Include any dependencies generated for this target.
-include CMakeFiles/Pa4.dir/depend.make
+include CMakeFiles/pa4.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/Pa4.dir/progress.make
+include CMakeFiles/pa4.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/Pa4.dir/flags.make
+include CMakeFiles/pa4.dir/flags.make
 
-CMakeFiles/Pa4.dir/GraphTest.c.o: CMakeFiles/Pa4.dir/flags.make
-CMakeFiles/Pa4.dir/GraphTest.c.o: ../GraphTest.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Pa4.dir/GraphTest.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Pa4.dir/GraphTest.c.o   -c /Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c
+CMakeFiles/pa4.dir/GraphTest.c.o: CMakeFiles/pa4.dir/flags.make
+CMakeFiles/pa4.dir/GraphTest.c.o: ../GraphTest.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/pa4.dir/GraphTest.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/pa4.dir/GraphTest.c.o   -c /Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c
 
-CMakeFiles/Pa4.dir/GraphTest.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Pa4.dir/GraphTest.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c > CMakeFiles/Pa4.dir/GraphTest.c.i
+CMakeFiles/pa4.dir/GraphTest.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa4.dir/GraphTest.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c > CMakeFiles/pa4.dir/GraphTest.c.i
 
-CMakeFiles/Pa4.dir/GraphTest.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Pa4.dir/GraphTest.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c -o CMakeFiles/Pa4.dir/GraphTest.c.s
+CMakeFiles/pa4.dir/GraphTest.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa4.dir/GraphTest.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c -o CMakeFiles/pa4.dir/GraphTest.c.s
 
-CMakeFiles/Pa4.dir/GraphTest.c.o.requires:
+CMakeFiles/pa4.dir/GraphTest.c.o.requires:
 
-.PHONY : CMakeFiles/Pa4.dir/GraphTest.c.o.requires
+.PHONY : CMakeFiles/pa4.dir/GraphTest.c.o.requires
 
-CMakeFiles/Pa4.dir/GraphTest.c.o.provides: CMakeFiles/Pa4.dir/GraphTest.c.o.requires
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/GraphTest.c.o.provides.build
-.PHONY : CMakeFiles/Pa4.dir/GraphTest.c.o.provides
+CMakeFiles/pa4.dir/GraphTest.c.o.provides: CMakeFiles/pa4.dir/GraphTest.c.o.requires
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/GraphTest.c.o.provides.build
+.PHONY : CMakeFiles/pa4.dir/GraphTest.c.o.provides
 
-CMakeFiles/Pa4.dir/GraphTest.c.o.provides.build: CMakeFiles/Pa4.dir/GraphTest.c.o
-
-
-CMakeFiles/Pa4.dir/List.c.o: CMakeFiles/Pa4.dir/flags.make
-CMakeFiles/Pa4.dir/List.c.o: ../List.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Pa4.dir/List.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Pa4.dir/List.c.o   -c /Users/sepehr/Git/CMPS101/PA/Pa4/List.c
-
-CMakeFiles/Pa4.dir/List.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Pa4.dir/List.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sepehr/Git/CMPS101/PA/Pa4/List.c > CMakeFiles/Pa4.dir/List.c.i
-
-CMakeFiles/Pa4.dir/List.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Pa4.dir/List.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sepehr/Git/CMPS101/PA/Pa4/List.c -o CMakeFiles/Pa4.dir/List.c.s
-
-CMakeFiles/Pa4.dir/List.c.o.requires:
-
-.PHONY : CMakeFiles/Pa4.dir/List.c.o.requires
-
-CMakeFiles/Pa4.dir/List.c.o.provides: CMakeFiles/Pa4.dir/List.c.o.requires
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/List.c.o.provides.build
-.PHONY : CMakeFiles/Pa4.dir/List.c.o.provides
-
-CMakeFiles/Pa4.dir/List.c.o.provides.build: CMakeFiles/Pa4.dir/List.c.o
+CMakeFiles/pa4.dir/GraphTest.c.o.provides.build: CMakeFiles/pa4.dir/GraphTest.c.o
 
 
-CMakeFiles/Pa4.dir/Graph.c.o: CMakeFiles/Pa4.dir/flags.make
-CMakeFiles/Pa4.dir/Graph.c.o: ../Graph.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Pa4.dir/Graph.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Pa4.dir/Graph.c.o   -c /Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c
+CMakeFiles/pa4.dir/List.c.o: CMakeFiles/pa4.dir/flags.make
+CMakeFiles/pa4.dir/List.c.o: ../List.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/pa4.dir/List.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/pa4.dir/List.c.o   -c /Users/sepehr/Git/CMPS101/PA/Pa4/List.c
 
-CMakeFiles/Pa4.dir/Graph.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Pa4.dir/Graph.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c > CMakeFiles/Pa4.dir/Graph.c.i
+CMakeFiles/pa4.dir/List.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa4.dir/List.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sepehr/Git/CMPS101/PA/Pa4/List.c > CMakeFiles/pa4.dir/List.c.i
 
-CMakeFiles/Pa4.dir/Graph.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Pa4.dir/Graph.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c -o CMakeFiles/Pa4.dir/Graph.c.s
+CMakeFiles/pa4.dir/List.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa4.dir/List.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sepehr/Git/CMPS101/PA/Pa4/List.c -o CMakeFiles/pa4.dir/List.c.s
 
-CMakeFiles/Pa4.dir/Graph.c.o.requires:
+CMakeFiles/pa4.dir/List.c.o.requires:
 
-.PHONY : CMakeFiles/Pa4.dir/Graph.c.o.requires
+.PHONY : CMakeFiles/pa4.dir/List.c.o.requires
 
-CMakeFiles/Pa4.dir/Graph.c.o.provides: CMakeFiles/Pa4.dir/Graph.c.o.requires
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/Graph.c.o.provides.build
-.PHONY : CMakeFiles/Pa4.dir/Graph.c.o.provides
+CMakeFiles/pa4.dir/List.c.o.provides: CMakeFiles/pa4.dir/List.c.o.requires
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/List.c.o.provides.build
+.PHONY : CMakeFiles/pa4.dir/List.c.o.provides
 
-CMakeFiles/Pa4.dir/Graph.c.o.provides.build: CMakeFiles/Pa4.dir/Graph.c.o
+CMakeFiles/pa4.dir/List.c.o.provides.build: CMakeFiles/pa4.dir/List.c.o
 
 
-# Object files for target Pa4
-Pa4_OBJECTS = \
-"CMakeFiles/Pa4.dir/GraphTest.c.o" \
-"CMakeFiles/Pa4.dir/List.c.o" \
-"CMakeFiles/Pa4.dir/Graph.c.o"
+CMakeFiles/pa4.dir/Graph.c.o: CMakeFiles/pa4.dir/flags.make
+CMakeFiles/pa4.dir/Graph.c.o: ../Graph.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/pa4.dir/Graph.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/pa4.dir/Graph.c.o   -c /Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c
 
-# External object files for target Pa4
-Pa4_EXTERNAL_OBJECTS =
+CMakeFiles/pa4.dir/Graph.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa4.dir/Graph.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c > CMakeFiles/pa4.dir/Graph.c.i
 
-Pa4: CMakeFiles/Pa4.dir/GraphTest.c.o
-Pa4: CMakeFiles/Pa4.dir/List.c.o
-Pa4: CMakeFiles/Pa4.dir/Graph.c.o
-Pa4: CMakeFiles/Pa4.dir/build.make
-Pa4: CMakeFiles/Pa4.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable Pa4"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Pa4.dir/link.txt --verbose=$(VERBOSE)
+CMakeFiles/pa4.dir/Graph.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa4.dir/Graph.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c -o CMakeFiles/pa4.dir/Graph.c.s
+
+CMakeFiles/pa4.dir/Graph.c.o.requires:
+
+.PHONY : CMakeFiles/pa4.dir/Graph.c.o.requires
+
+CMakeFiles/pa4.dir/Graph.c.o.provides: CMakeFiles/pa4.dir/Graph.c.o.requires
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/Graph.c.o.provides.build
+.PHONY : CMakeFiles/pa4.dir/Graph.c.o.provides
+
+CMakeFiles/pa4.dir/Graph.c.o.provides.build: CMakeFiles/pa4.dir/Graph.c.o
+
+
+# Object files for target pa4
+pa4_OBJECTS = \
+"CMakeFiles/pa4.dir/GraphTest.c.o" \
+"CMakeFiles/pa4.dir/List.c.o" \
+"CMakeFiles/pa4.dir/Graph.c.o"
+
+# External object files for target pa4
+pa4_EXTERNAL_OBJECTS =
+
+pa4: CMakeFiles/pa4.dir/GraphTest.c.o
+pa4: CMakeFiles/pa4.dir/List.c.o
+pa4: CMakeFiles/pa4.dir/Graph.c.o
+pa4: CMakeFiles/pa4.dir/build.make
+pa4: CMakeFiles/pa4.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable pa4"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pa4.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/Pa4.dir/build: Pa4
+CMakeFiles/pa4.dir/build: pa4
 
-.PHONY : CMakeFiles/Pa4.dir/build
+.PHONY : CMakeFiles/pa4.dir/build
 
-CMakeFiles/Pa4.dir/requires: CMakeFiles/Pa4.dir/GraphTest.c.o.requires
-CMakeFiles/Pa4.dir/requires: CMakeFiles/Pa4.dir/List.c.o.requires
-CMakeFiles/Pa4.dir/requires: CMakeFiles/Pa4.dir/Graph.c.o.requires
+CMakeFiles/pa4.dir/requires: CMakeFiles/pa4.dir/GraphTest.c.o.requires
+CMakeFiles/pa4.dir/requires: CMakeFiles/pa4.dir/List.c.o.requires
+CMakeFiles/pa4.dir/requires: CMakeFiles/pa4.dir/Graph.c.o.requires
 
-.PHONY : CMakeFiles/Pa4.dir/requires
+.PHONY : CMakeFiles/pa4.dir/requires
 
-CMakeFiles/Pa4.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/Pa4.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/Pa4.dir/clean
+CMakeFiles/pa4.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles/pa4.dir/cmake_clean.cmake
+.PHONY : CMakeFiles/pa4.dir/clean
 
-CMakeFiles/Pa4.dir/depend:
-	cd /Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/sepehr/Git/CMPS101/PA/Pa4 /Users/sepehr/Git/CMPS101/PA/Pa4 /Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug /Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug /Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles/Pa4.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/Pa4.dir/depend
+CMakeFiles/pa4.dir/depend:
+	cd /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/sepehr/Git/CMPS101/PA/Pa4 /Users/sepehr/Git/CMPS101/PA/Pa4 /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/CMakeFiles/pa4.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : CMakeFiles/pa4.dir/depend
 

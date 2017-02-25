@@ -2,44 +2,44 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="Pa4"/>
+		<Option title="pa4"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug"/>
+				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug"/>
+				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug"/>
+				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Pa4">
-				<Option output="/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Pa4" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug"/>
+			<Target title="pa4">
+				<Option output="/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/pa4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,15 +53,15 @@
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 Pa4"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 pa4"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Pa4/fast">
-				<Option output="/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Pa4" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug"/>
+			<Target title="pa4/fast">
+				<Option output="/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/pa4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -75,27 +75,27 @@
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 Pa4/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 pa4/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
 		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c">
-			<Option target="Pa4"/>
+			<Option target="pa4"/>
 		</Unit>
 		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.h">
-			<Option target="Pa4"/>
+			<Option target="pa4"/>
 		</Unit>
 		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c">
-			<Option target="Pa4"/>
+			<Option target="pa4"/>
 		</Unit>
 		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/List.c">
-			<Option target="Pa4"/>
+			<Option target="pa4"/>
 		</Unit>
 		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/List.h">
-			<Option target="Pa4"/>
+			<Option target="pa4"/>
 		</Unit>
 		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

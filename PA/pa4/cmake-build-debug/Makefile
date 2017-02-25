@@ -51,7 +51,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /Users/sepehr/Git/CMPS101/PA/Pa4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles /Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/CMakeFiles /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sepehr/Git/CMPS101/PA/Pa4/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Pa4
+# Target rules for targets named pa4
 
 # Build rule for target.
-Pa4: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Pa4
-.PHONY : Pa4
+pa4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pa4
+.PHONY : pa4
 
 # fast build rule for target.
-Pa4/fast:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/build
-.PHONY : Pa4/fast
+pa4/fast:
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/build
+.PHONY : pa4/fast
 
 Graph.o: Graph.c.o
 
@@ -129,7 +129,7 @@ Graph.o: Graph.c.o
 
 # target to build an object file
 Graph.c.o:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/Graph.c.o
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/Graph.c.o
 .PHONY : Graph.c.o
 
 Graph.i: Graph.c.i
@@ -138,7 +138,7 @@ Graph.i: Graph.c.i
 
 # target to preprocess a source file
 Graph.c.i:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/Graph.c.i
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/Graph.c.i
 .PHONY : Graph.c.i
 
 Graph.s: Graph.c.s
@@ -147,7 +147,7 @@ Graph.s: Graph.c.s
 
 # target to generate assembly for a file
 Graph.c.s:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/Graph.c.s
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/Graph.c.s
 .PHONY : Graph.c.s
 
 GraphTest.o: GraphTest.c.o
@@ -156,7 +156,7 @@ GraphTest.o: GraphTest.c.o
 
 # target to build an object file
 GraphTest.c.o:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/GraphTest.c.o
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/GraphTest.c.o
 .PHONY : GraphTest.c.o
 
 GraphTest.i: GraphTest.c.i
@@ -165,7 +165,7 @@ GraphTest.i: GraphTest.c.i
 
 # target to preprocess a source file
 GraphTest.c.i:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/GraphTest.c.i
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/GraphTest.c.i
 .PHONY : GraphTest.c.i
 
 GraphTest.s: GraphTest.c.s
@@ -174,7 +174,7 @@ GraphTest.s: GraphTest.c.s
 
 # target to generate assembly for a file
 GraphTest.c.s:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/GraphTest.c.s
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/GraphTest.c.s
 .PHONY : GraphTest.c.s
 
 List.o: List.c.o
@@ -183,7 +183,7 @@ List.o: List.c.o
 
 # target to build an object file
 List.c.o:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/List.c.o
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/List.c.o
 .PHONY : List.c.o
 
 List.i: List.c.i
@@ -192,7 +192,7 @@ List.i: List.c.i
 
 # target to preprocess a source file
 List.c.i:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/List.c.i
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/List.c.i
 .PHONY : List.c.i
 
 List.s: List.c.s
@@ -201,7 +201,7 @@ List.s: List.c.s
 
 # target to generate assembly for a file
 List.c.s:
-	$(MAKE) -f CMakeFiles/Pa4.dir/build.make CMakeFiles/Pa4.dir/List.c.s
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/List.c.s
 .PHONY : List.c.s
 
 # Help Target
@@ -212,7 +212,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Pa4"
+	@echo "... pa4"
 	@echo "... Graph.o"
 	@echo "... Graph.i"
 	@echo "... Graph.s"
