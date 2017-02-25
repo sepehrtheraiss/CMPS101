@@ -56,10 +56,11 @@ Graph newGraph(int n)
 void freeGraph(Graph* pG)
 {
     if(pG!=NULL && *pG!=NULL) {
-        for(int i=0;i<(*pG)->n_vertices+1;i++)
+        for(int i=1;i<(*pG)->n_vertices+1;i++)
         {
             freeList(&((*pG)->list[i]));
         }
+        free((*pG)->list);
         free((*pG)->p);
         free((*pG)->colors);
         free((*pG)->d);
