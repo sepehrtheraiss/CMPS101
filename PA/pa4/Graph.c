@@ -40,7 +40,7 @@ Graph newGraph(int n)
     graph->n_vertices = n;
     graph->n_edges = 0;
     graph->source = 0;
-    for(int i =1;i<n+1;i++)
+    for(int i =0;i<n+1;i++)
     {
         graph->list[i] = newList();
         graph->p[i] = NIL;
@@ -56,7 +56,7 @@ Graph newGraph(int n)
 void freeGraph(Graph* pG)
 {
     if(pG!=NULL && *pG!=NULL) {
-        for(int i=1;i<(*pG)->n_vertices+1;i++)
+        for(int i=0;i<(*pG)->n_vertices+1;i++)
         {
             freeList(&((*pG)->list[i]));
         }
