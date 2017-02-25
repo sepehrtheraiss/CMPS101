@@ -7,16 +7,16 @@
 #IncludeRegexTransform: 
 
 /Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c
+Graph.h
+/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.h
+
+/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.h
 stdio.h
 -
 stdlib.h
 -
 List.h
 /Users/sepehr/Git/CMPS101/PA/Pa4/List.h
-Graph.h
-/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.h
-
-/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.h
 
 /Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c
 Graph.h

@@ -7,6 +7,7 @@ CMakeFiles/pa4.dir/Graph.c.o: ../List.h
 
 CMakeFiles/pa4.dir/GraphTest.c.o: ../Graph.h
 CMakeFiles/pa4.dir/GraphTest.c.o: ../GraphTest.c
+CMakeFiles/pa4.dir/GraphTest.c.o: ../List.h
 
 CMakeFiles/pa4.dir/List.c.o: ../List.c
 CMakeFiles/pa4.dir/List.c.o: ../List.h
