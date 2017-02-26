@@ -1,4 +1,4 @@
-# Install script for directory: /Users/sepehr/Git/CMPS101/PA/Pa4
+# Install script for directory: /Users/sepehr/Git/CMPS101/PA/pa4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

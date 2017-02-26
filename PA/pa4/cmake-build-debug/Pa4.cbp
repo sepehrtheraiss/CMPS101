@@ -82,22 +82,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.c">
+		<Unit filename="/Users/sepehr/Git/CMPS101/PA/pa4/Graph.c">
 			<Option target="pa4"/>
 		</Unit>
-		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/Graph.h">
+		<Unit filename="/Users/sepehr/Git/CMPS101/PA/pa4/Graph.h">
 			<Option target="pa4"/>
 		</Unit>
-		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/GraphTest.c">
+		<Unit filename="/Users/sepehr/Git/CMPS101/PA/pa4/GraphTest.c">
 			<Option target="pa4"/>
 		</Unit>
-		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/List.c">
+		<Unit filename="/Users/sepehr/Git/CMPS101/PA/pa4/List.c">
 			<Option target="pa4"/>
 		</Unit>
-		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/List.h">
+		<Unit filename="/Users/sepehr/Git/CMPS101/PA/pa4/List.h">
 			<Option target="pa4"/>
 		</Unit>
-		<Unit filename="/Users/sepehr/Git/CMPS101/PA/Pa4/CMakeLists.txt">
+		<Unit filename="/Users/sepehr/Git/CMPS101/PA/pa4/ListTest.c">
+			<Option target="pa4"/>
+		</Unit>
+		<Unit filename="/Users/sepehr/Git/CMPS101/PA/pa4/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pa4.dir/GraphTest.c.o"
   "CMakeFiles/pa4.dir/List.c.o"
   "CMakeFiles/pa4.dir/Graph.c.o"
+  "CMakeFiles/pa4.dir/ListTest.c.o"
   "pa4.pdb"
   "pa4"
 )

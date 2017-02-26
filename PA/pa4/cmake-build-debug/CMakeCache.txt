@@ -199,7 +199,7 @@ ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
 pa4_BINARY_DIR:STATIC=/Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug
 
 //Value Computed by CMake
-pa4_SOURCE_DIR:STATIC=/Users/sepehr/Git/CMPS101/PA/Pa4
+pa4_SOURCE_DIR:STATIC=/Users/sepehr/Git/CMPS101/PA/pa4
 
 
 ########################

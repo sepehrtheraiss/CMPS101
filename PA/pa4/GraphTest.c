@@ -1,7 +1,7 @@
 //
 // Created by sepehr on 2/24/17.
 //
-#include "Graph.h"
+/*#include "Graph.h"
 int main()
 {
     Graph g = newGraph(5);
@@ -31,4 +31,4 @@ int main()
     printGraph(stdout,g);
     freeGraph(&g);
     return 0;
-}
+}*/

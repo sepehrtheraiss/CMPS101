@@ -8,8 +8,6 @@
 // List.c
 // Implementation file for List ADT
 //-----------------------------------------------------------------------------
-#include<stdio.h>
-#include<stdlib.h>
 #include "List.h"
 // structs --------------------------------------------------------------------
 
@@ -221,6 +219,7 @@ void clear(List L)
     while( length(L) != 0 ) {
         deleteBack(L);
     }
+
 }
 
 
@@ -437,11 +436,12 @@ void deleteFront(List L)
         exit(EXIT_FAILURE);
     }
     Node delete = L->head;
-    if(L->head->next != NULL)
+    L->head = L->head->next;
+    if(L->head == NULL)
     {
-        L->head = L->head->next;
+        L->tail = NULL;
     }
-    L->head->prev = NULL;
+    delete->next = NULL;
     freeNode(&delete);
     L->length--;
 }
@@ -461,11 +461,12 @@ void deleteBack(List L)
         exit(EXIT_FAILURE);
     }
     Node delete = L->tail;
-    if(L->tail->prev != NULL)
+    L->tail = L->tail->prev;
+    if(L->tail == NULL)
     {
-        L->tail = L->tail->prev;
+        L->head = NULL;
     }
-    L->tail->next = NULL;
+    delete->prev = NULL;
     freeNode(&delete);
     L->length--;
 
@@ -491,26 +492,27 @@ void delete(List L)
         printf("List Error: calling delete() on a cursor pointed to NULL\n");
         exit(EXIT_FAILURE);
     }
+
     Node delete = L->cursor;
-    Node prev = L->cursor->prev;
-    Node next = L->cursor->next;
-    if(prev != NULL && next != NULL)//cursor is between two nodes
+    if (delete == L->head)
     {
-        prev->next = next;
-        next->prev = prev;
+        deleteFront(L);
     }
-    else if(next == NULL) // cursor is at the back  of the list
+    else if (delete == L->tail)
     {
-        prev->next = next;
+        deleteBack(L);
     }
-    else if(prev == NULL) // cursor is at the front of the list
+    else
     {
-        next->prev = prev;
+        Node A = L->cursor->prev;
+        Node B = L->cursor->next;
+        A->next = B;
+        B->prev = A;
+        freeNode(&delete);
     }
     L->cursor->next=NULL;
     L->cursor->prev=NULL;
     L->cursor = NULL;
-    freeNode(&delete);
     L->length--;
 }
 
@@ -525,10 +527,16 @@ void printList(FILE* out, List L)
         printf("List Error: calling delete() on NULL List reference\n");
         exit(EXIT_FAILURE);
     }
-    for(Node ptr = L->head;ptr!=NULL;ptr=ptr->next)
+    moveFront(L);
+    while(index(L)!=-1)
+    {
+        fprintf(out,"%i ",get(L));
+        moveNext(L);
+    }
+    /*for(Node ptr = L->head;ptr!=NULL;ptr=ptr->next)
     {
         fprintf(out,"%i ",ptr->data);
-    }
+    }*/
 }
 
 // copy()

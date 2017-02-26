@@ -12,6 +12,8 @@
 #ifndef _LIST_H_INCLUDE_
 #define _LIST_H_INCLUDE_
 
+#include<stdio.h>
+#include<stdlib.h>
 // Exported type --------------------------------------------------------------
 typedef struct ListObj* List;
 

@@ -48,7 +48,7 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sepehr/Git/CMPS101/PA/Pa4
+CMAKE_SOURCE_DIR = /Users/sepehr/Git/CMPS101/PA/pa4
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /Users/sepehr/Git/CMPS101/PA/pa4/cmake-build-debug
@@ -204,6 +204,33 @@ List.c.s:
 	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/List.c.s
 .PHONY : List.c.s
 
+ListTest.o: ListTest.c.o
+
+.PHONY : ListTest.o
+
+# target to build an object file
+ListTest.c.o:
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/ListTest.c.o
+.PHONY : ListTest.c.o
+
+ListTest.i: ListTest.c.i
+
+.PHONY : ListTest.i
+
+# target to preprocess a source file
+ListTest.c.i:
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/ListTest.c.i
+.PHONY : ListTest.c.i
+
+ListTest.s: ListTest.c.s
+
+.PHONY : ListTest.s
+
+# target to generate assembly for a file
+ListTest.c.s:
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/ListTest.c.s
+.PHONY : ListTest.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... List.o"
 	@echo "... List.i"
 	@echo "... List.s"
+	@echo "... ListTest.o"
+	@echo "... ListTest.i"
+	@echo "... ListTest.s"
 .PHONY : help
 
 
