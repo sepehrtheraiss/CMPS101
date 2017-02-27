@@ -435,6 +435,7 @@ void deleteFront(List L)
         printf("List Error: calling deleteFront() on empty List\n");
         exit(EXIT_FAILURE);
     }
+
     Node delete = L->head;
     L->head = L->head->next;
     if(L->head == NULL)
