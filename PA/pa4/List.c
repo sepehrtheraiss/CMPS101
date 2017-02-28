@@ -442,6 +442,10 @@ void deleteFront(List L)
     {
         L->tail = NULL;
     }
+    else
+    {
+        L->head->prev = NULL;
+    }
     delete->next = NULL;
     freeNode(&delete);
     L->length--;
@@ -467,7 +471,10 @@ void deleteBack(List L)
     {
         L->head = NULL;
     }
-    delete->prev = NULL;
+    else
+    {
+        L->tail->next = NULL;
+    }
     freeNode(&delete);
     L->length--;
 

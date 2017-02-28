@@ -2,14 +2,14 @@
 // Created by sepehr on 2/25/17.
 //
 #include "List.h"
-int main()
+/*int main()
 {
 
   List l = newList();
     append(l,2);
-    printList(stdout,l);
+    //printList(stdout,l);
     deleteFront(l);
     printList(stdout,l);
     return 0;
-}
+}*/
 

@@ -1,7 +1,7 @@
 //
 // Created by sepehr on 2/24/17.
 //
-/*#include "Graph.h"
+#include "Graph.h"
 int main()
 {
     Graph g = newGraph(5);
@@ -29,6 +29,19 @@ int main()
     printGraph(stdout,g);
     makeNull(g);
     printGraph(stdout,g);
+    g = newGraph(6);
+    addEdge(g,1,2);
+    addEdge(g,1,3);
+    addEdge(g,2,4);
+    addEdge(g,2,5);
+    addEdge(g,2,6);
+    addEdge(g,3,4);
+    addEdge(g,4,5);
+    addEdge(g,5,6);
+    printGraph(stdout,g);
+    BFS(g,3);
+    List l = newList();
+    getPath(l,g,2);
     freeGraph(&g);
     return 0;
-}*/
+}

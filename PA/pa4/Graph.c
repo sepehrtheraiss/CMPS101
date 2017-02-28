@@ -11,6 +11,7 @@
 #include "Graph.h"
 #define INF -1
 #define NIL 0
+
 // struct --------------------------------------------------------------------
 
 // private GraphObj type
@@ -145,7 +146,9 @@ int getDist(Graph G, int u)
     return G->d[u];
 }
 // getPath
-// pre: G != NULL 1<=u<=getOrder()
+// pre: G != NULL, 1<=u<=getOrder(), getSource(G)!=NIL
+// appends to the List L the vertices of a shortest path in G from source to u,
+// or appends to L the value NIL if no such path exists
 void getPath(List L, Graph G, int u)
 {
     if( G==NULL ){
@@ -162,6 +165,13 @@ void getPath(List L, Graph G, int u)
         printf("Graph Error: Calling getPath() on u > getOrder()");
         exit(EXIT_FAILURE);
     }
+    if(getSource(G)==NIL)
+    {
+        printf("Graph Error: Calling getPath() on getSource(G)==NIL)");
+        exit(EXIT_FAILURE);
+    }
+    // just the last vertex
+    printf("to V: %i distance is: %i\n",u,G->d[u]);
 
 }
 /*** Manipulation procedures ***/
@@ -251,6 +261,39 @@ void BFS(Graph G, int s)
     if( G==NULL ){
         printf("Graph Error: Calling BFS() on NULL Graph reference\n");
         exit(EXIT_FAILURE);
+    }
+    G->source = s;
+    for(int i =1;i<G->n_vertices+1;i++)
+    {
+        G->colors[i]=-1;
+        G->d[i]=INF;
+        G->p[i]=NIL;
+    }
+    G->colors[s]=0;
+    G->d[s]=0;
+    G->p[s]=NIL;
+    int x =0;
+    int y=0;
+    List Q = newList();
+    append(Q,s);
+    while(length(Q)!=0)
+    {
+        x = front(Q);
+        deleteFront(Q);
+        moveFront(G->list[x]);
+        while(index(G->list[x])!=-1)
+        {
+            y = get(G->list[x]);
+            if(G->colors[y]== -1)
+            {
+                G->colors[y]=0;
+                G->d[y]= G->d[x]+1;
+                G->p[y] = x;
+                append(Q,y);
+            }
+            moveNext(G->list[x]);
+        }
+        G->colors[x]=1;
     }
 }
 /*** Other operations ***/
