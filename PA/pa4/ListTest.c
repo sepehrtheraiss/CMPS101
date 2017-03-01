@@ -8,7 +8,7 @@ int main()
   List l = newList();
     append(l,2);
     printList(stdout,l);
-    deleteFront(l);
+    deleteBack(l);
     printList(stdout,l);
     return 0;
 }

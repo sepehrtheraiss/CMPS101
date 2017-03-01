@@ -438,6 +438,7 @@ void deleteFront(List L)
 
     Node delete = L->head;
     L->head = L->head->next;
+    L->head->prev = NULL;
     if(L->head == NULL)
     {
         L->tail = NULL;
