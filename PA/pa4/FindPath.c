@@ -19,6 +19,7 @@ int main(int argc, char** argv) {
     int v=0;    // vertex
     int e=0;    // edge
     int flag = 0;// when to switch to bfs mode
+    int line_num =0;
     List l = newList();
     FILE *in, *out;
     // open files for reading and writing
@@ -32,11 +33,22 @@ int main(int argc, char** argv) {
         printf("Unable to open file %s for writing\n", argv[2]);
         exit(EXIT_FAILURE);
     }
+    while (fgets(c,MAX_LEN,in)!=NULL)
+    {
+        line_num++;
+    }
+    fclose(in);
+    fclose(out);
+    // open files for reading and writing
+    in = fopen(argv[1], "r");
+    out = fopen(argv[2], "w");
     fgets(c,MAX_LEN,in);
     sscanf(c,"%i",&n);
     Graph g = newGraph(n);
+    int i=0;//juts not to print the last \n I had to do this annoying stuff
     while(fgets(c,MAX_LEN,in)!=NULL)
     {
+        i++;
         sscanf(c,"%i %i",&v,&e);
         if(flag != 1 && v!=0 && e !=0)
         {
@@ -56,6 +68,10 @@ int main(int argc, char** argv) {
             getPath(l,g,e);
             printList(out,l);
             fprintf(out,"\n");
+            if(i != line_num-1)
+            {
+                fprintf(out,"\n");
+            }
             clear(l);
         }
     }
