@@ -11,6 +11,7 @@
 #include "Graph.h"
 #define INF -1
 #define NIL 0
+
 // struct --------------------------------------------------------------------
 
 // private GraphObj type
@@ -145,7 +146,9 @@ int getDist(Graph G, int u)
     return G->d[u];
 }
 // getPath
-// pre: G != NULL 1<=u<=getOrder()
+// pre: G != NULL, 1<=u<=getOrder(), getSource(G)!=NIL
+// appends to the List L the vertices of a shortest path in G from source to u,
+// or appends to L the value NIL if no such path exists
 void getPath(List L, Graph G, int u)
 {
     if( G==NULL ){
@@ -161,6 +164,27 @@ void getPath(List L, Graph G, int u)
     {
         printf("Graph Error: Calling getPath() on u > getOrder()");
         exit(EXIT_FAILURE);
+    }
+    if(getSource(G)==NIL)
+    {
+        printf("Graph Error: Calling getPath() on getSource(G)==NIL)");
+        exit(EXIT_FAILURE);
+    }
+    if(G->d[u]==INF)
+    {
+        append(L,INF);
+    }
+    else
+    {
+        if(G->p[u]!=NIL)
+        {
+            getPath(L,G,G->p[u]);
+            append(L,u);
+        }
+        else
+        {
+            append(L,u);
+        }
     }
 
 }
@@ -178,7 +202,11 @@ void makeNull(Graph G)
     for(int i =1 ;i<G->n_vertices+1;i++)
     {
         clear(G->list[i]);
+        G->p[i] = NIL;
+        G->colors[i] = -1;
+        G->d[i] = INF;
     }
+    G->n_edges=0;
 
 }
 // addEdge()
@@ -252,6 +280,39 @@ void BFS(Graph G, int s)
         printf("Graph Error: Calling BFS() on NULL Graph reference\n");
         exit(EXIT_FAILURE);
     }
+    G->source = s;
+    for(int i =1;i<G->n_vertices+1;i++)
+    {
+        G->colors[i]=-1;
+        G->d[i]=INF;
+        G->p[i]=NIL;
+    }
+    G->colors[s]=0;
+    G->d[s]=0;
+    G->p[s]=NIL;
+    int x =0;
+    int y=0;
+    List Q = newList();
+    append(Q,s);
+    while(length(Q)!=0)
+    {
+        x = front(Q);
+        deleteFront(Q);
+        moveFront(G->list[x]);
+        while(index(G->list[x])!=-1)
+        {
+            y = get(G->list[x]);
+            if(G->colors[y]== -1)
+            {
+                G->colors[y]=0;
+                G->d[y]= G->d[x]+1;
+                G->p[y] = x;
+                append(Q,y);
+            }
+            moveNext(G->list[x]);
+        }
+        G->colors[x]=1;
+    }
 }
 /*** Other operations ***/
 // printGraph()
@@ -259,18 +320,18 @@ void BFS(Graph G, int s)
 void printGraph(FILE* out, Graph G)
 {
     if( G==NULL ){
-        printf("Graph Error: Calling printGraph() on NULL Graph reference\n");
+        fprintf(out,"Graph Error: Calling printGraph() on NULL Graph reference\n");
         exit(EXIT_FAILURE);
     }
     for(int i=1;i<G->n_vertices+1;i++)
     {
-        printf("%i: ",i);
+        fprintf(out,"%i: ",i);
         moveFront(G->list[i]);
         while(index(G->list[i])!= -1)
         {
-            printf("%i ",get(G->list[i]));
+            fprintf(out,"%i ",get(G->list[i]));
             moveNext(G->list[i]);
         }
-        printf("\n");
+        fprintf(out,"\n");
     }
 }

@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/sepehr/Git/CMPS101/PA/pa4/FindPath.c">
+			<Option target="pa4"/>
+		</Unit>
 		<Unit filename="/Users/sepehr/Git/CMPS101/PA/pa4/Graph.c">
 			<Option target="pa4"/>
 		</Unit>
