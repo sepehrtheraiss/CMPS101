@@ -52,8 +52,8 @@
       <file leaf-file-name="FindPath.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FindPath.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+            <state relative-caret-position="289">
+              <caret line="40" column="19" lean-forward="false" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -382,12 +382,12 @@
       <workItem from="1487995443016" duration="10307000" />
       <workItem from="1488057288594" duration="4591000" />
       <workItem from="1488075175522" duration="9382000" />
-      <workItem from="1488318504906" duration="16318000" />
+      <workItem from="1488318504906" duration="17030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40598000" />
+    <option name="totallyTimeSpent" value="41310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="640" y="22" width="640" height="740" extended-state="0" />
@@ -691,8 +691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FindPath.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+        <state relative-caret-position="289">
+          <caret line="40" column="19" lean-forward="false" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
           <folding />
         </state>
       </provider>
