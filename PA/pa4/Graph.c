@@ -398,11 +398,11 @@ void printGraph(FILE* out, Graph G)
     }
     for(int i=1;i<G->n_vertices+1;i++)
     {
-        fprintf(out,"%i: ",i);
+        fprintf(out,"%i:",i);
         moveFront(G->list[i]);
         while(index(G->list[i])!= -1)
         {
-            fprintf(out,"%i ",get(G->list[i]));
+            fprintf(out," %i",get(G->list[i]));
             moveNext(G->list[i]);
         }
         fprintf(out,"\n");
