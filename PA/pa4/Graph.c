@@ -237,8 +237,56 @@ void addEdge(Graph G, int u, int v)
         printf("Graph Error: Calling getPath() on v > getOrder()");
         exit(EXIT_FAILURE);
     }
-    append((G->list[u]),v);
-    append((G->list[v]),u);
+    if(length(G->list[u])==0)
+    {
+        append((G->list[u]),v);
+    }
+    else
+    {
+        moveBack(G->list[u]);
+        while(index(G->list[u])!=-1 && get(G->list[u]) > v)
+        {
+            movePrev(G->list[u]);
+        }
+        if(index(G->list[u])==-1)
+        {
+            prepend(G->list[u],v);
+        }
+        else if(get(G->list[u]) == v)
+        {
+            insertAfter(G->list[u],v);
+            delete(G->list[u]);
+        }
+        else
+        {
+            insertAfter(G->list[u],v);
+        }
+    }
+    if(length(G->list[v])==0)
+    {
+        append((G->list[v]),u);
+    }
+    else
+    {
+        moveBack(G->list[v]);
+        while(index(G->list[v])!=-1 && get(G->list[v]) > u)
+        {
+            movePrev(G->list[v]);
+        }
+        if(index(G->list[v])==-1) // v < than list[1]
+        {
+            prepend(G->list[v],u);
+        }
+        else if(get(G->list[v]) == u) // if the same then replace
+        {
+            insertAfter(G->list[v],u);
+            delete(G->list[v]);
+        }
+        else // v > than list[1]
+        {
+            insertAfter(G->list[v],u);
+        }
+    }
     G->n_edges++;
 }
 // addArc
@@ -269,7 +317,31 @@ void addArc(Graph G, int u, int v)
         printf("Graph Error: Calling getPath() on v > getOrder()");
         exit(EXIT_FAILURE);
     }
-    append((G->list[u]),v);
+    if(length(G->list[u])==0)
+    {
+        append((G->list[u]),v);
+    }
+    else
+    {
+        moveBack(G->list[u]);
+        while(index(G->list[u])!=-1 && get(G->list[u]) > v)
+        {
+            movePrev(G->list[u]);
+        }
+        if(index(G->list[u])==-1)
+        {
+            prepend(G->list[u],v);
+        }
+        else if(get(G->list[u]) == v)
+        {
+            insertAfter(G->list[u],v);
+            delete(G->list[u]);
+        }
+        else
+        {
+            insertAfter(G->list[u],v);
+        }
+    }
     G->n_edges++;
 }
 // BFS()
@@ -313,6 +385,7 @@ void BFS(Graph G, int s)
         }
         G->colors[x]=1;
     }
+    freeList(&Q);
 }
 /*** Other operations ***/
 // printGraph()
