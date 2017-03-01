@@ -81,21 +81,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Graph.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Graph.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Graph.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="408" column="5" lean-forward="true" selection-start-line="408" selection-start-column="5" selection-end-line="408" selection-end-column="5" />
+            <state relative-caret-position="321">
+              <caret line="406" column="9" lean-forward="true" selection-start-line="406" selection-start-column="9" selection-end-line="406" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="List.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="List.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/List.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="539" column="22" lean-forward="false" selection-start-line="539" selection-start-column="22" selection-end-line="539" selection-end-column="22" />
+            <state relative-caret-position="274">
+              <caret line="539" column="33" lean-forward="true" selection-start-line="539" selection-start-column="33" selection-end-line="539" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -381,12 +381,12 @@
       <workItem from="1487995443016" duration="10307000" />
       <workItem from="1488057288594" duration="4591000" />
       <workItem from="1488075175522" duration="9382000" />
-      <workItem from="1488318504906" duration="14058000" />
+      <workItem from="1488318504906" duration="14590000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38338000" />
+    <option name="totallyTimeSpent" value="38870000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="740" extended-state="6" />
@@ -656,22 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GraphTest.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="41" column="8" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graph.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="408" column="5" lean-forward="true" selection-start-line="408" selection-start-column="5" selection-end-line="408" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FindPath.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -688,10 +672,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List.c">
+    <entry file="file://$PROJECT_DIR$/GraphTest.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="539" column="22" lean-forward="false" selection-start-line="539" selection-start-column="22" selection-end-line="539" selection-end-column="22" />
+          <caret line="41" column="8" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/List.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="539" column="33" lean-forward="true" selection-start-line="539" selection-start-column="33" selection-end-line="539" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="406" column="9" lean-forward="true" selection-start-line="406" selection-start-column="9" selection-end-line="406" selection-end-column="9" />
           <folding />
         </state>
       </provider>

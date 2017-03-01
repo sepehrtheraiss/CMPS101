@@ -537,8 +537,12 @@ void printList(FILE* out, List L)
     moveFront(L);
     while(index(L)!=-1)
     {
-        fprintf(out," %i",get(L));
+        fprintf(out,"%i",get(L));
         moveNext(L);
+        if(index(L)!=-1)
+        {
+            fprintf(out," ");
+        }
     }
 }
 
