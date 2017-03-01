@@ -7,14 +7,18 @@
 // This program will find the shortest path to the given destination from source in a graph representation
 // ----------------------------------------------------------------
 #include "Graph.h"
+#define MAX_LEN 160
 int main(int argc, char** argv) {
     // check command line for correct number of arguments
     if (argc != 3) {
         printf("Usage: %s <input file> <output file>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-    int line_count=0;//line count
+    char *c = malloc(MAX_LEN);
     int n=0;    // graph vertex size
+    int v=0;    // vertex
+    int e=0;    // edge
+    int flag = 0;// when to switch to bfs mode
     FILE *in, *out;
     // open files for reading and writing
     in = fopen(argv[1], "r");
@@ -27,19 +31,29 @@ int main(int argc, char** argv) {
         printf("Unable to open file %s for writing\n", argv[2]);
         exit(EXIT_FAILURE);
     }
-    /*reading number of characters and lines*/
-    char c;
-    while((c=fgetc(in))&& c!=EOF)
+    fgets(c,MAX_LEN,in);
+    sscanf(c,"%i",&n);
+    Graph g = newGraph(n);
+    while(fgets(c,MAX_LEN,in)!=NULL)
     {
-        if(c=='\n')
+        sscanf(c,"%i %i",&v,&e);
+        if(flag != 1 && v!=0 && e !=0)
         {
-            line_count++;
+            addEdge(g,v,e);
+        }
+        else if(flag != 1)
+        {
+            flag =1;
+            printGraph(out,g);
+        }
+        if(flag == 1&& v!=0 && e!=0)
+        {
+            BFS(g,v);
+            fprintf(out,"The distance from %i to %i is %i\n",v,e,getDist(g,e));
+
         }
     }
-    fclose(in);//to free the memory it was pointed to
-    in = fopen(argv[1], "r");//because the cursor needs to start from the beginning
-    fgets(n,10,in);
     fclose(in);
-    printf("n:%i \n",n);
+    fclose(out);
     return EXIT_SUCCESS;
 }
