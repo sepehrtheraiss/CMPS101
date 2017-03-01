@@ -83,6 +83,9 @@ int main(int argc, char** argv) {
             clear(l);
         }
     }
+    freeGraph(&g);
+    freeList(&l);
+    free(c);
     fclose(in);
     fclose(out);
     return (EXIT_SUCCESS);
