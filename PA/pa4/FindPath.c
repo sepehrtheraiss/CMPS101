@@ -40,6 +40,6 @@ int main(int argc, char** argv) {
     in = fopen(argv[1], "r");//because the cursor needs to start from the beginning
     n = getc(in);
     fclose(in);
-    printf("n: \n",n);
+    printf("n:%i \n",n);
     return EXIT_SUCCESS;
 }
