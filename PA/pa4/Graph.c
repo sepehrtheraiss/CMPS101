@@ -9,8 +9,6 @@
 // Implementation file for List ADT
 //-----------------------------------------------------------------------------
 #include "Graph.h"
-#define INF -1
-#define NIL 0
 
 // struct --------------------------------------------------------------------
 
@@ -400,6 +398,10 @@ void printGraph(FILE* out, Graph G)
     {
         fprintf(out,"%i:",i);
         moveFront(G->list[i]);
+        if(index(G->list[i])==-1) // this is ridiculous why would you want to print space if its null!
+        {
+            fprintf(out," ");
+        }
         while(index(G->list[i])!= -1)
         {
             fprintf(out," %i",get(G->list[i]));

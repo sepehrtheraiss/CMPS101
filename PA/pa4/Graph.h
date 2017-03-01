@@ -13,6 +13,8 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#define INF -1
+#define NIL 0
 #include "List.h"
 /** Exported type --------------------------------------------------------------***/
 typedef struct GraphObj* Graph;

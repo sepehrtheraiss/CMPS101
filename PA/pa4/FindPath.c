@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
     fgets(c,MAX_LEN,in);
     sscanf(c,"%i",&n);
     Graph g = newGraph(n);
-    int i=0;//juts not to print the last \n I had to do this annoying stuff
+    int i=0;//just not to print the last \n I had to do this annoying stuff
     while(fgets(c,MAX_LEN,in)!=NULL)
     {
         i++;
@@ -63,12 +63,20 @@ int main(int argc, char** argv) {
         if(flag == 1&& v!=0 && e!=0)
         {
             BFS(g,v);
-            fprintf(out,"The distance from %i to %i is %i\n",v,e,getDist(g,e));
-            fprintf(out,"A shortest %i-%i path is: ",v,e);
-            getPath(l,g,e);
-            printList(out,l);
+            if(getDist(g,e)!=INF)
+            {
+                fprintf(out,"The distance from %i to %i is %i\n",v,e,getDist(g,e));
+                fprintf(out,"A shortest %i-%i path is: ",v,e);
+                getPath(l,g,e);
+                printList(out,l);
+            }
+            else
+            {
+                fprintf(out,"The distance from %i to %i is infinity\n",v,e);
+                fprintf(out,"No %i-%i path exists",v,e);
+            }
             fprintf(out,"\n");
-            if(i != line_num-1)
+            if(i != line_num-2) // i cant belive just not to print the last \n i had to add bunch of line of code
             {
                 fprintf(out,"\n");
             }
@@ -77,5 +85,5 @@ int main(int argc, char** argv) {
     }
     fclose(in);
     fclose(out);
-    return EXIT_SUCCESS;
+    return (EXIT_SUCCESS);
 }
