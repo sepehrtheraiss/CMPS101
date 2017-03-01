@@ -123,6 +123,33 @@ pa4/fast:
 	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/build
 .PHONY : pa4/fast
 
+FindPath.o: FindPath.c.o
+
+.PHONY : FindPath.o
+
+# target to build an object file
+FindPath.c.o:
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/FindPath.c.o
+.PHONY : FindPath.c.o
+
+FindPath.i: FindPath.c.i
+
+.PHONY : FindPath.i
+
+# target to preprocess a source file
+FindPath.c.i:
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/FindPath.c.i
+.PHONY : FindPath.c.i
+
+FindPath.s: FindPath.c.s
+
+.PHONY : FindPath.s
+
+# target to generate assembly for a file
+FindPath.c.s:
+	$(MAKE) -f CMakeFiles/pa4.dir/build.make CMakeFiles/pa4.dir/FindPath.c.s
+.PHONY : FindPath.c.s
+
 Graph.o: Graph.c.o
 
 .PHONY : Graph.o
@@ -240,6 +267,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... pa4"
+	@echo "... FindPath.o"
+	@echo "... FindPath.i"
+	@echo "... FindPath.s"
 	@echo "... Graph.o"
 	@echo "... Graph.i"
 	@echo "... Graph.s"

@@ -170,8 +170,22 @@ void getPath(List L, Graph G, int u)
         printf("Graph Error: Calling getPath() on getSource(G)==NIL)");
         exit(EXIT_FAILURE);
     }
-    // just the last vertex
-    printf("to V: %i distance is: %i\n",u,G->d[u]);
+    if(G->d[u]==INF)
+    {
+        append(L,INF);
+    }
+    else
+    {
+        if(G->p[u]!=NIL)
+        {
+            getPath(L,G,G->p[u]);
+            append(L,u);
+        }
+        else
+        {
+            append(L,u);
+        }
+    }
 
 }
 /*** Manipulation procedures ***/
@@ -188,7 +202,11 @@ void makeNull(Graph G)
     for(int i =1 ;i<G->n_vertices+1;i++)
     {
         clear(G->list[i]);
+        G->p[i] = NIL;
+        G->colors[i] = -1;
+        G->d[i] = INF;
     }
+    G->n_edges=0;
 
 }
 // addEdge()
@@ -302,18 +320,18 @@ void BFS(Graph G, int s)
 void printGraph(FILE* out, Graph G)
 {
     if( G==NULL ){
-        printf("Graph Error: Calling printGraph() on NULL Graph reference\n");
+        fprintf(out,"Graph Error: Calling printGraph() on NULL Graph reference\n");
         exit(EXIT_FAILURE);
     }
     for(int i=1;i<G->n_vertices+1;i++)
     {
-        printf("%i: ",i);
+        fprintf(out,"%i: ",i);
         moveFront(G->list[i]);
         while(index(G->list[i])!= -1)
         {
-            printf("%i ",get(G->list[i]));
+            fprintf(out,"%i ",get(G->list[i]));
             moveNext(G->list[i]);
         }
-        printf("\n");
+        fprintf(out,"\n");
     }
 }
