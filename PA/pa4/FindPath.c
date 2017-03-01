@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
     }
     fclose(in);//to free the memory it was pointed to
     in = fopen(argv[1], "r");//because the cursor needs to start from the beginning
-    n = getc(in);
+    fgets(n,10,in);
     fclose(in);
     printf("n:%i \n",n);
     return EXIT_SUCCESS;
