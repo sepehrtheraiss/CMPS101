@@ -19,6 +19,7 @@ int main(int argc, char** argv) {
     int v=0;    // vertex
     int e=0;    // edge
     int flag = 0;// when to switch to bfs mode
+    List l = newList();
     FILE *in, *out;
     // open files for reading and writing
     in = fopen(argv[1], "r");
@@ -45,12 +46,17 @@ int main(int argc, char** argv) {
         {
             flag =1;
             printGraph(out,g);
+            fprintf(out,"\n");
         }
         if(flag == 1&& v!=0 && e!=0)
         {
             BFS(g,v);
             fprintf(out,"The distance from %i to %i is %i\n",v,e,getDist(g,e));
-
+            fprintf(out,"A shortest %i-%i path is: ",v,e);
+            getPath(l,g,e);
+            printList(out,l);
+            fprintf(out,"\n");
+            clear(l);
         }
     }
     fclose(in);

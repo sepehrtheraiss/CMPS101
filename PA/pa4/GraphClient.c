@@ -92,7 +92,6 @@ int main(int argc, char* argv[]){
    printf("Peripheral vert%s: ", length(P)==1?"ex":"ices");
    printList(stdout, P);
    printf("\n");
-
    // Free objects 
    freeList(&C);
    freeList(&P);
