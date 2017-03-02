@@ -6,7 +6,7 @@
 // ----------------------------------------------------------------
 //-----------------------------------------------------------------------------
 // Graph.c
-// Implementation file for List ADT
+// Implementation file for Graph ADT
 //-----------------------------------------------------------------------------
 #include "Graph.h"
 
@@ -209,6 +209,8 @@ void makeNull(Graph G)
 }
 // addEdge()
 // pre: G != NULL 1<=u<=getOrder() && 1<=v<=getOrder()
+// inserts a new edge joining u to v, i.e. u is added to the adjacency List of v,
+// and v to the adjacency List of u. In sorting order
 void addEdge(Graph G, int u, int v)
 {
     if( G==NULL ){
@@ -246,16 +248,16 @@ void addEdge(Graph G, int u, int v)
         {
             movePrev(G->list[u]);
         }
-        if(index(G->list[u])==-1)
+        if(index(G->list[u])==-1)// u < than list[1]
         {
             prepend(G->list[u],v);
         }
-        else if(get(G->list[u]) == v)
+        else if(get(G->list[u]) == v) // if the same then replace
         {
             insertAfter(G->list[u],v);
             delete(G->list[u]);
         }
-        else
+        else            // u > than list[1]
         {
             insertAfter(G->list[u],v);
         }
@@ -289,6 +291,8 @@ void addEdge(Graph G, int u, int v)
 }
 // addArc
 // pre: G != NULL 1<=u<=getOrder() && 1<=v<=getOrder()
+// inserts a new directed edge from u to v, i.e.
+// v is added to the adjacency List of u (but not u to the adjacency List of v) In sorting order
 void addArc(Graph G, int u, int v)
 {
     if( G==NULL ){
@@ -326,16 +330,16 @@ void addArc(Graph G, int u, int v)
         {
             movePrev(G->list[u]);
         }
-        if(index(G->list[u])==-1)
+        if(index(G->list[u])==-1) // u < than list[1]
         {
             prepend(G->list[u],v);
         }
-        else if(get(G->list[u]) == v)
+        else if(get(G->list[u]) == v) // if the same then replace
         {
             insertAfter(G->list[u],v);
             delete(G->list[u]);
         }
-        else
+        else    // v > than list[1]
         {
             insertAfter(G->list[u],v);
         }
@@ -344,6 +348,8 @@ void addArc(Graph G, int u, int v)
 }
 // BFS()
 // pre: G != NULL
+// runs the BFS algorithm on the Graph G with source s, setting the color,
+// distance, parent, and source fields of G accordingly.
 void BFS(Graph G, int s)
 {
     if( G==NULL ){
@@ -388,6 +394,8 @@ void BFS(Graph G, int s)
 /*** Other operations ***/
 // printGraph()
 // pre: G != NULL
+// prints the adjacency list representation of G
+// to the file pointed to by out.
 void printGraph(FILE* out, Graph G)
 {
     if( G==NULL ){

@@ -1,0 +1,16 @@
+Sepehr Raissian
+sraissia@ucsc.edu
+CMPS101 pa4
+Due date: 3/1/17
+
+Table of Contents:
+-README           Describes the table of content
+-Makefile         Compiles the files and creates an executable file called FindPath 
+-List.c           ADT- implements double linked list and inserts to back and front,
+                  also uses a cursor to move around the list
+-List.h           Header file for List.c
+-Graph.c          Graph ADT that implents List with some graph functions
+-Graph.h          Header file for Graph.h
+GraphTest.c       some test cases for the Graph.c as implementing the Graph.c
+FindPath.c        Client program that takes in two file in and out, finds the shorest path to the given source
+(total files:8)
