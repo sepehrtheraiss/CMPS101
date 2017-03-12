@@ -22,7 +22,7 @@ int main()
 //    List S = newList();
 //    for(int i=1;i<=8;i++)
 //    {
-//        prepend(S,i);
+//        append(S,i);
 //    }
 //    printGraph(stdout,g);
 //    //printList(stdout,S);
@@ -51,7 +51,7 @@ int main()
     List S = newList();
     for(int i=1;i<=11;i++)
     {
-        prepend(S,i);
+        append(S,i);
     }
     DFS(g,S);
     printList(stdout,S);

@@ -470,10 +470,10 @@ void DFS(Graph G, List S)
         if(G->colors[get(S)] == -1)
         {
             Visit(G,S,get(S),&time);
-            //deleteBack(S);
         }
         moveNext(S);
     }
+    // delete unwanted vertices
     for(int i =0;i<getOrder(G);i++)
     {
         deleteBack(S);
