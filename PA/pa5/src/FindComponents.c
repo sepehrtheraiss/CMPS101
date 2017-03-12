@@ -92,8 +92,15 @@ int main(int argc, char** argv) {
     printGraph(out,G);
     fprintf(out,"\n");
     fprintf(out,"G contains %i strongly connected components:\n",cc);
-    printList(out,SCC);
-    fprintf(out,"\n");
+    for(int i=1;i<cc+1;i++)
+    {
+        fprintf(out,"Component ");
+        printList(out,SCC[i]);
+        if(i != cc)
+        {
+            fprintf(out,"\n");
+        }
+    }
     freeGraph(&G);
     freeList(&S);
     free(c);
