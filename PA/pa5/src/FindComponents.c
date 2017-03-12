@@ -83,6 +83,7 @@ int main(int argc, char** argv) {
         }
         else
         {
+            prepend(SCC[i],get(S));
             i++; // go the next list
         }
 
@@ -94,7 +95,7 @@ int main(int argc, char** argv) {
     fprintf(out,"G contains %i strongly connected components:\n",cc);
     for(int i=1;i<cc+1;i++)
     {
-        fprintf(out,"Component ");
+        fprintf(out,"Component %1:");
         printList(out,SCC[i]);
         if(i != cc)
         {
