@@ -453,7 +453,7 @@ void DFS(Graph G, List S)
     }
     if( length(S) != getOrder(G))
     {
-        printf("Graph Error: Calling DFS() on length(G) != getOrder(G)\n");
+        printf("Graph Error: Calling DFS() on length(S) != getOrder(G)\n");
         exit(EXIT_FAILURE);
     }
     for(int i =1;i<G->n_vertices+1;i++)
