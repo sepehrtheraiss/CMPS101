@@ -54,11 +54,6 @@ int main()
         prepend(S,i);
     }
     DFS(g,S);
-    // delete unwanted vertices
-    for(int i =0;i<11;i++)
-    {
-        deleteBack(S);
-    }
     printList(stdout,S);
     printf("\n");
     Graph T = transpose(g);
