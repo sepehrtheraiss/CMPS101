@@ -58,18 +58,28 @@ int main(int argc, char** argv) {
     DFS(T,S);
     // find number of vertices with parent of nil
     int cc=0; // number of connected components
-    for(int i=1;i<getOrder(T)+1;i++)
+    List SCC = newList(); // strongly connected components
+    moveBack(S);
+    while(index(S)!=-1)
     {
-        if(getParent(T,i) == NIL)
+        if(getParent(T,get(S))!= NIL)
+        {
+            append(SCC,get(S));
+        }
+        else
         {
             cc++;
+            append(SCC,get(S));
+            append(SCC,0);
         }
+        movePrev(S);
     }
-    printList(out,S);
     fprintf(out,"Adjacency list representation of G:\n");
     printGraph(out,G);
     fprintf(out,"\n");
     fprintf(out,"G contains %i strongly connected components:\n",cc);
+    printList(out,SCC);
+    fprintf(out,"\n");
     freeGraph(&G);
     freeList(&S);
     free(c);
