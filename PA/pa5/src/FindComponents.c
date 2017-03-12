@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
         SCC[i] = newList();
     }
     // adding strongly connected components vertices to the new stack
-    int i =0; // SCC index
+    int i =1; // SCC index
     moveBack(S);
     while(index(S)!=-1)
     {
