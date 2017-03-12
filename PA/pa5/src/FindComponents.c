@@ -33,9 +33,6 @@ int main(int argc, char** argv) {
         exit(EXIT_FAILURE);
     }
 
-    // open files for reading and writing
-    in = fopen(argv[1], "r");
-    out = fopen(argv[2], "w");
     fgets(c,MAX_LEN,in); // gets vertices size
     sscanf(c,"%i",&n);   // converts char to int
     Graph G = newGraph(n);
