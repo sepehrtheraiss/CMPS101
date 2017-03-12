@@ -50,9 +50,11 @@ int main(int argc, char** argv) {
     // adding vertices to the so called stack
     for(int i=1;i<=n;i++)
     {
-        append(S,v);
+        append(S,i);
     }
     // finding the connected components
+    printList(out,S);
+    fprintf(out,"\n");
     DFS(G,S);
     Graph T = transpose(G);
     DFS(T,S);
