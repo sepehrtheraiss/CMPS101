@@ -464,7 +464,7 @@ void DFS(Graph G, List S)
         G->finish_time[i]=UNDEF;
     }
     int time=0;
-    moveBack(S);
+    moveFront(S);
     while(index(S)!=-1)
     {
         if(G->colors[get(S)] == -1)
@@ -472,7 +472,7 @@ void DFS(Graph G, List S)
             Visit(G,S,get(S),&time);
             //deleteBack(S);
         }
-        movePrev(S);
+        moveNext(S);
     }
     for(int i =0;i<getOrder(G);i++)
     {
