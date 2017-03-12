@@ -48,6 +48,7 @@ int main(int argc, char** argv) {
             append(S,v);
         }
     }
+    printList(out,S);
     DFS(G,S);
     Graph T = transpose(G);
     DFS(T,S);
