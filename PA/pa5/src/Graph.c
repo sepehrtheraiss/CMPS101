@@ -66,6 +66,8 @@ void freeGraph(Graph* pG)
         free((*pG)->p);
         free((*pG)->colors);
         free((*pG)->d);
+        free((*pG)->discover_time);
+        free((*pG)->finish_time);
         free(*pG);
         *pG = NULL;
     }
