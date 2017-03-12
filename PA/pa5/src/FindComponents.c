@@ -64,13 +64,13 @@ int main(int argc, char** argv) {
     {
         if(getParent(T,get(S))!= NIL)
         {
-            append(SCC,get(S));
+            prepend(SCC,get(S));
         }
         else
         {
             cc++;
-            append(SCC,get(S));
-            append(SCC,0);
+            prepend(SCC,get(S));
+            prepend(SCC,0);
         }
         movePrev(S);
     }
