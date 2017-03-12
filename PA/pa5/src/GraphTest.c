@@ -1,6 +1,12 @@
-//
-// Created by sepehr on 2/24/17.
-//
+// Sepehr Raissian
+// Sraissia@ucsc.edu
+// CMPS101 pa5
+// GraphTest.c
+// ----------------------------------------------------------------
+//-----------------------------------------------------------------------------
+// Graph.c
+// some test cases for Graph ADT as implementing it
+//-----------------------------------------------------------------------------
 #include "Graph.h"
 int main()
 {
