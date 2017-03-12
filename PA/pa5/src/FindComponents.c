@@ -53,8 +53,6 @@ int main(int argc, char** argv) {
         append(S,i);
     }
     // finding the connected components
-    printList(out,S);
-    fprintf(out,"\n");
     DFS(G,S);
     Graph T = transpose(G);
     DFS(T,S);
@@ -67,6 +65,7 @@ int main(int argc, char** argv) {
             cc++;
         }
     }
+    printList(out,S);
     fprintf(out,"Adjacency list representation of G:\n");
     printGraph(out,G);
     fprintf(out,"\n");
