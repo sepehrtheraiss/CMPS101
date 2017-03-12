@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
     fprintf(out,"Adjacency list representation of G:\n");
     printGraph(out,g);
     freeGraph(&g);
-    freeList(&l);
+    freeList(&S);
     free(c);
     fclose(in);
     fclose(out);
