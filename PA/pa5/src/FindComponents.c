@@ -99,6 +99,12 @@ int main(int argc, char** argv) {
         printList(out,SCC[i]);
         fprintf(out,"\n");
     }
+    for(int i=1;i<cc+1;i++)
+    {
+        freeList(&SCC[i]);
+    }
+    free((*pG)->list);
+    freeGraph(&T);
     freeGraph(&G);
     freeList(&S);
     free(c);
