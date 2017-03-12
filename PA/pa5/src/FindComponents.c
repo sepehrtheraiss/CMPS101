@@ -97,10 +97,7 @@ int main(int argc, char** argv) {
     {
         fprintf(out,"Component %i:",i);
         printList(out,SCC[i]);
-        if(i != cc)
-        {
-            fprintf(out,"\n");
-        }
+        fprintf(out,"\n");
     }
     freeGraph(&G);
     freeList(&S);
