@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
     // find number of vertices with parent of nil
     int cc=0; // number of connected components
     List SCC = newList(); // strongly connected components
-    moveFront(S);
+    moveBack(S);
     while(index(S)!=-1)
     {
         if(getParent(T,get(S))!= NIL)
@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
             append(SCC,get(S));
             append(SCC,0);
         }
-        moveNext(S);
+        movePrev(S);
     }
     fprintf(out,"Adjacency list representation of G:\n");
     printGraph(out,G);
