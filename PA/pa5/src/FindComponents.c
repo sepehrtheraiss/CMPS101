@@ -95,7 +95,7 @@ int main(int argc, char** argv) {
     fprintf(out,"G contains %i strongly connected components:\n",cc);
     for(int i=1;i<cc+1;i++)
     {
-        fprintf(out,"Component %1:");
+        fprintf(out,"Component %i:",i);
         printList(out,SCC[i]);
         if(i != cc)
         {
