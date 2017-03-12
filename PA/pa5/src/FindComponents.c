@@ -45,10 +45,14 @@ int main(int argc, char** argv) {
         if(v!=0 && e !=0)
         {
             addArc(G,v,e);
-            append(S,v);
         }
     }
-    printList(out,S);
+    // adding vertices to the so called stack
+    for(int i=1;i<=n;i++)
+    {
+        append(S,v);
+    }
+    // finding the connected components
     DFS(G,S);
     Graph T = transpose(G);
     DFS(T,S);
