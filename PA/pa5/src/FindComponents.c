@@ -54,30 +54,38 @@ int main(int argc, char** argv) {
     }
     // finding the connected components
     DFS(G,S);
-    fprintf(out,"S: \n");
-    printList(out,S);
     Graph T = transpose(G);
-    fprintf(out,"\nT: \n");
-    printGraph(out,T);
     DFS(T,S);
-    fprintf(out,"\nS: \n");
-    printList(out,S);
     // find number of vertices with parent of nil
     int cc=0; // number of connected components
-    List SCC = newList(); // strongly connected components
+    moveFront(S);
+    while(index(S)!=-1)
+    {
+        if(getParent(T,get(S)) == NIL)
+        {
+            cc++;
+        }
+        moveNext(S);
+    }
+    List* SCC = malloc(sizeof(List)*(cc+1)); // strongly connected components
+    for(int i =1;i<cc+1;i++)
+    {
+        SCC[i] = newList();
+    }
+    // adding strongly connected components vertices to the new stack
+    int i =0; // SCC index
     moveBack(S);
     while(index(S)!=-1)
     {
-        if(getParent(T,get(S))!= NIL)
+        if(getParent(T,get(S)) != NIL)
         {
-            append(SCC,get(S));
+            prepend(SCC[i],get(S));
         }
         else
         {
-            cc++;
-            append(SCC,get(S));
-            append(SCC,0);
+            i++; // go the next list
         }
+
         movePrev(S);
     }
     fprintf(out,"Adjacency list representation of G:\n");
