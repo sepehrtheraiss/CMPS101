@@ -103,7 +103,7 @@ int main(int argc, char** argv) {
     {
         freeList(&SCC[i]);
     }
-    free((*pG)->list);
+    free(&SCC);
     freeGraph(&T);
     freeGraph(&G);
     freeList(&S);
