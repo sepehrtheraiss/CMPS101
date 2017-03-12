@@ -54,8 +54,14 @@ int main(int argc, char** argv) {
     }
     // finding the connected components
     DFS(G,S);
+    fprintf(out,"S: \n");
+    printList(out,S);
     Graph T = transpose(G);
+    fprintf(out,"\nT: \n");
+    printGraph(out,T);
     DFS(T,S);
+    fprintf(out,"\nS: \n");
+    printList(out,S);
     // find number of vertices with parent of nil
     int cc=0; // number of connected components
     List SCC = newList(); // strongly connected components
@@ -64,13 +70,13 @@ int main(int argc, char** argv) {
     {
         if(getParent(T,get(S))!= NIL)
         {
-            prepend(SCC,get(S));
+            append(SCC,get(S));
         }
         else
         {
             cc++;
-            prepend(SCC,get(S));
-            prepend(SCC,0);
+            append(SCC,get(S));
+            append(SCC,0);
         }
         movePrev(S);
     }
