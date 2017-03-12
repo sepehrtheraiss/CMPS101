@@ -38,18 +38,33 @@ int main(int argc, char** argv) {
     out = fopen(argv[2], "w");
     fgets(c,MAX_LEN,in); // gets vertices size
     sscanf(c,"%i",&n);   // converts char to int
-    Graph g = newGraph(n);
+    Graph G = newGraph(n);
     while(fgets(c,MAX_LEN,in)!=NULL)
     {
         sscanf(c,"%i %i",&v,&e);
         if(v!=0 && e !=0)
         {
-            addArc(g,v,e);
+            addArc(G,v,e);
+            append(S,v);
+        }
+    }
+    DFS(G,S);
+    Graph T = transpose(G);
+    DFS(T,S);
+    // find number of vertices with parent of nil
+    int cc=0; // number of connected components
+    for(int i=1;i<getOrder(T)+1;i++)
+    {
+        if(getParent(T,i) == NIL)
+        {
+            cc++;
         }
     }
     fprintf(out,"Adjacency list representation of G:\n");
-    printGraph(out,g);
-    freeGraph(&g);
+    printGraph(out,G);
+    fprintf(out,"\n");
+    fprintf(out,"G contains %i strongly connected components:\n",cc);
+    freeGraph(&G);
     freeList(&S);
     free(c);
     fclose(in);
